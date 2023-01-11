@@ -4,7 +4,7 @@ title:  "[Dacon] 구내식당 식수 예측"
 categories: Dacon
 tag: [python, Dacon, ml]
 toc: true
-author_profile: false
+author_profile: true
 ---
 데이콘 실무역량 강화교육을 통해 경험했던 첫 번째 프로젝트에 대한 코드입니다. 코랩을 사용하였고 간단한 EDA를 통해 데이터의 특성을 파악하고 그에 따른 모델을 만들어 식수인원을 예측해보았습니다.
 
