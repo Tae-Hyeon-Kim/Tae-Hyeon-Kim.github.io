@@ -1,10 +1,10 @@
 ---
-#layout: single
+layout: single
 title:  "[Dacon] 와인 품질 분류 경진대회"
 categories: Dacon
 tag: [python, Dacon, ml]
 toc: true
-author_profile: false
+author_profile: true
 ---
 
 데이콘 실무역량 강화교육 간에 실시한 프로젝트인 와인분류 프로젝트입니다. 
