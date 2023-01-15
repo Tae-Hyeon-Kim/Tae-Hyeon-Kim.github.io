@@ -1,0 +1,2268 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Dacon] 유전체 정보 분류 경진대회 - Just Do it</title>
+<meta name="description" content="데이콘 유전체 정보 품종 분류 AI 경진대회">
+
+
+  <meta name="author" content="Tae Hyeon Kim">
+  
+  <meta property="article:author" content="Tae Hyeon Kim">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Just Do it">
+<meta property="og:title" content="[Dacon] 유전체 정보 분류 경진대회">
+<meta property="og:url" content="http://localhost:4000/dacon/dacon-gene/">
+
+
+  <meta property="og:description" content="데이콘 유전체 정보 품종 분류 AI 경진대회">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-11T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/dacon/dacon-gene/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Tae Hyeon Kim",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Just Do it Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Just Do it
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">Introduce</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Tae Hyeon Kim</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>I am an <strong>amazing</strong> person.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Somewhere</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:ttth000221@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/Tae-Hyeon-Kim" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Dacon] 유전체 정보 분류 경진대회">
+    <meta itemprop="description" content="데이콘 유전체 정보 품종 분류 AI 경진대회">
+    <meta itemprop="datePublished" content="2023-01-11T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/dacon/dacon-gene/" class="u-url" itemprop="url">[Dacon] 유전체 정보 분류 경진대회
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-11T00:00:00+09:00">January 11, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#import">Import</a></li><li><a href="#data-load">Data Load</a></li><li><a href="#data-pre-processing">Data Pre-processing</a><ul><li><a href="#label-encoding">Label-Encoding</a></li></ul></li><li><a href="#data-engineering">Data Engineering</a><ul><li><a href="#feature-seletion">Feature Seletion</a><ul><li><a href="#feature-importance">Feature Importance</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>데이콘 유전체 정보 품종 분류 AI 경진대회</p>
+
+<h1 id="import">Import</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CFG</span><span class="p">:</span>
+    <span class="n">SEED</span> <span class="o">=</span> <span class="mi">42</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">seed_everything</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
+    <span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'PYTHONHASHSEED'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">seed_everything</span><span class="p">(</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span> <span class="c1"># Seed 고정
+</span></code></pre></div></div>
+
+<h1 id="data-load">Data Load</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="p">.</span><span class="n">mount</span><span class="p">(</span><span class="s">'/content/drive'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mounted at /content/drive
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/data/유전체 정보 품종 분류/train.csv'</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/data/유전체 정보 품종 분류/test.csv'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div id="df-2002deb0-aae0-4aea-ae5f-7685e95e1f75">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>father</th>
+      <th>mother</th>
+      <th>gender</th>
+      <th>trait</th>
+      <th>SNP_01</th>
+      <th>SNP_02</th>
+      <th>SNP_03</th>
+      <th>SNP_04</th>
+      <th>SNP_05</th>
+      <th>...</th>
+      <th>SNP_07</th>
+      <th>SNP_08</th>
+      <th>SNP_09</th>
+      <th>SNP_10</th>
+      <th>SNP_11</th>
+      <th>SNP_12</th>
+      <th>SNP_13</th>
+      <th>SNP_14</th>
+      <th>SNP_15</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TRAIN_000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C A</td>
+      <td>...</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TRAIN_001</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>A G</td>
+      <td>A G</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>...</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>TRAIN_002</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C C</td>
+      <td>...</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>TRAIN_003</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>...</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>TRAIN_004</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>C C</td>
+      <td>...</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-2002deb0-aae0-4aea-ae5f-7685e95e1f75')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none" />
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z" /><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z" />
+  &lt;/svg&gt;
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-2002deb0-aae0-4aea-ae5f-7685e95e1f75 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-2002deb0-aae0-4aea-ae5f-7685e95e1f75');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_x_y</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">'class'</span> <span class="ow">in</span> <span class="n">df</span><span class="p">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">df_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'id'</span><span class="p">,</span> <span class="s">'class'</span><span class="p">])</span>
+        <span class="n">df_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'class'</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">df_x</span><span class="p">,</span> <span class="n">df_y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'id'</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">df_x</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span> <span class="o">=</span> <span class="n">get_x_y</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="n">test_x</span> <span class="o">=</span> <span class="n">get_x_y</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_x</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div id="df-273a67e2-01b7-4aa7-aa17-01c4763cf8cb">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>father</th>
+      <th>mother</th>
+      <th>gender</th>
+      <th>trait</th>
+      <th>SNP_01</th>
+      <th>SNP_02</th>
+      <th>SNP_03</th>
+      <th>SNP_04</th>
+      <th>SNP_05</th>
+      <th>SNP_06</th>
+      <th>SNP_07</th>
+      <th>SNP_08</th>
+      <th>SNP_09</th>
+      <th>SNP_10</th>
+      <th>SNP_11</th>
+      <th>SNP_12</th>
+      <th>SNP_13</th>
+      <th>SNP_14</th>
+      <th>SNP_15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>A G</td>
+      <td>A G</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C C</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-273a67e2-01b7-4aa7-aa17-01c4763cf8cb')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none" />
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z" /><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z" />
+  &lt;/svg&gt;
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-273a67e2-01b7-4aa7-aa17-01c4763cf8cb button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-273a67e2-01b7-4aa7-aa17-01c4763cf8cb');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+
+<h1 id="data-pre-processing">Data Pre-processing</h1>
+<h2 id="label-encoding">Label-Encoding</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">class_le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">snp_le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">snp_col</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s">'SNP_</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s">'</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">snp_col</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['SNP_01',
+ 'SNP_02',
+ 'SNP_03',
+ 'SNP_04',
+ 'SNP_05',
+ 'SNP_06',
+ 'SNP_07',
+ 'SNP_08',
+ 'SNP_09',
+ 'SNP_10',
+ 'SNP_11',
+ 'SNP_12',
+ 'SNP_13',
+ 'SNP_14',
+ 'SNP_15']
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">snp_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">snp_col</span><span class="p">:</span>
+    <span class="n">snp_data</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">train_x</span><span class="p">[</span><span class="n">col</span><span class="p">].</span><span class="n">values</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_y</span> <span class="o">=</span> <span class="n">class_le</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_y</span><span class="p">)</span>
+<span class="n">snp_le</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">snp_data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LabelEncoder()
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">train_x</span><span class="p">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">snp_col</span><span class="p">:</span>
+        <span class="n">train_x</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">snp_le</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_x</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+        <span class="n">test_x</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">snp_le</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_x</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_x</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div id="df-8bb0dee1-1ba7-44b1-8cb5-0a2bacd1fb72">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>father</th>
+      <th>mother</th>
+      <th>gender</th>
+      <th>trait</th>
+      <th>SNP_01</th>
+      <th>SNP_02</th>
+      <th>SNP_03</th>
+      <th>SNP_04</th>
+      <th>SNP_05</th>
+      <th>SNP_06</th>
+      <th>SNP_07</th>
+      <th>SNP_08</th>
+      <th>SNP_09</th>
+      <th>SNP_10</th>
+      <th>SNP_11</th>
+      <th>SNP_12</th>
+      <th>SNP_13</th>
+      <th>SNP_14</th>
+      <th>SNP_15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+      <td>4</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-8bb0dee1-1ba7-44b1-8cb5-0a2bacd1fb72')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none" />
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z" /><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z" />
+  &lt;/svg&gt;
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-8bb0dee1-1ba7-44b1-8cb5-0a2bacd1fb72 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-8bb0dee1-1ba7-44b1-8cb5-0a2bacd1fb72');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">x_train</span><span class="p">,</span><span class="n">x_valid</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span><span class="n">train_y</span><span class="p">,</span><span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x_train</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div id="df-0d36f4e5-c214-4180-b108-6fc69f0c035f">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>father</th>
+      <th>mother</th>
+      <th>gender</th>
+      <th>trait</th>
+      <th>SNP_01</th>
+      <th>SNP_02</th>
+      <th>SNP_03</th>
+      <th>SNP_04</th>
+      <th>SNP_05</th>
+      <th>SNP_06</th>
+      <th>SNP_07</th>
+      <th>SNP_08</th>
+      <th>SNP_09</th>
+      <th>SNP_10</th>
+      <th>SNP_11</th>
+      <th>SNP_12</th>
+      <th>SNP_13</th>
+      <th>SNP_14</th>
+      <th>SNP_15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>179</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>4</td>
+      <td>5</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0d36f4e5-c214-4180-b108-6fc69f0c035f')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none" />
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z" /><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z" />
+  &lt;/svg&gt;
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-0d36f4e5-c214-4180-b108-6fc69f0c035f button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-0d36f4e5-c214-4180-b108-6fc69f0c035f');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">train_x</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(262, 19)
+(209, 19)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">data_preprocessing</span><span class="p">():</span>
+  <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/data/유전체 정보 품종 분류/train.csv'</span><span class="p">)</span>
+  <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/data/유전체 정보 품종 분류/test.csv'</span><span class="p">)</span>
+
+  <span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span> <span class="o">=</span> <span class="n">get_x_y</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+  <span class="n">test_x</span> <span class="o">=</span> <span class="n">get_x_y</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+  
+  <span class="n">class_le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+  <span class="n">snp_le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+  <span class="n">snp_col</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s">'SNP_</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s">'</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">)]</span>
+
+  <span class="n">snp_data</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">snp_col</span><span class="p">:</span>
+      <span class="n">snp_data</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">train_x</span><span class="p">[</span><span class="n">col</span><span class="p">].</span><span class="n">values</span><span class="p">)</span>
+
+  <span class="n">train_y</span> <span class="o">=</span> <span class="n">class_le</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_y</span><span class="p">)</span>
+  <span class="n">snp_le</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">snp_data</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">train_x</span><span class="p">.</span><span class="n">columns</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">snp_col</span><span class="p">:</span>
+          <span class="n">train_x</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">snp_le</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_x</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+          <span class="n">test_x</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">snp_le</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_x</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+
+  <span class="n">x_train</span><span class="p">,</span><span class="n">x_valid</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span><span class="n">train_y</span><span class="p">,</span><span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">x_train</span><span class="p">,</span><span class="n">x_valid</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span><span class="n">test_x</span>
+
+</code></pre></div></div>
+
+<h1 id="data-engineering">Data Engineering</h1>
+
+<h2 id="feature-seletion">Feature Seletion</h2>
+
+<h3 id="feature-importance">Feature Importance</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RandomForestClassifier(random_state=42)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+<span class="c1">#f1_score(y_pred,y_valid, average='macro')
+</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_plot</span><span class="p">():</span>
+  <span class="n">f1_sco</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span><span class="n">average</span><span class="o">=</span><span class="s">'macro'</span><span class="p">)</span>
+
+  
+  <span class="n">validation</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'y_valid'</span><span class="p">:</span><span class="n">y_valid</span><span class="p">,</span><span class="s">'y_pred'</span><span class="p">:</span><span class="n">y_pred</span><span class="p">})</span>
+
+  <span class="n">validation_count</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_valid'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">sort_index</span><span class="p">())</span>
+  <span class="n">validation_count</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_pred'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">sort_index</span><span class="p">().</span><span class="n">index</span><span class="p">,</span><span class="s">'y_pred'</span><span class="p">]</span><span class="o">=</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_pred'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">sort_index</span><span class="p">().</span><span class="n">values</span>
+  <span class="n">validation_count</span> <span class="o">=</span> <span class="n">validation_count</span><span class="p">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">x</span> <span class="o">=</span> <span class="n">validation_count</span><span class="p">.</span><span class="n">index</span>
+  <span class="n">y_valid_count</span> <span class="o">=</span> <span class="n">validation_count</span><span class="p">[</span><span class="s">'y_valid'</span><span class="p">]</span>
+  <span class="n">y_pred_count</span> <span class="o">=</span> <span class="n">validation_count</span><span class="p">[</span><span class="s">'y_pred'</span><span class="p">]</span>
+
+  <span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>
+
+  <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'F1-score: '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">f1_sco</span><span class="p">)[:</span><span class="mi">6</span><span class="p">])</span>
+  <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'quality'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'count'</span><span class="p">)</span>
+
+  <span class="n">p1</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">([</span><span class="n">idx</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">y_valid_count</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s">'real'</span><span class="p">)</span>
+  <span class="n">p2</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">([</span><span class="n">idx</span><span class="o">+</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">y_pred_count</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s">'pred'</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+  <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">make_plot</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/122070432/212539548-f58a9b73-c64d-4113-87b9-a48c42b215ff.png" alt="png" /></p>
+
+<p>클래스 1과 2에서 혼동하는 모습</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">feature_imp</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">feature_importances_</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="n">train_x</span><span class="p">.</span><span class="n">columns</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'importance'</span><span class="p">])</span>
+<span class="n">feature_imp</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s">'importance'</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div id="df-2eb3d69b-f77c-4de9-847f-e34687666ee8">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>importance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>trait</th>
+      <td>0.149997</td>
+    </tr>
+    <tr>
+      <th>SNP_05</th>
+      <td>0.110934</td>
+    </tr>
+    <tr>
+      <th>SNP_10</th>
+      <td>0.098379</td>
+    </tr>
+    <tr>
+      <th>SNP_07</th>
+      <td>0.087005</td>
+    </tr>
+    <tr>
+      <th>SNP_08</th>
+      <td>0.083492</td>
+    </tr>
+    <tr>
+      <th>SNP_04</th>
+      <td>0.071618</td>
+    </tr>
+    <tr>
+      <th>SNP_12</th>
+      <td>0.056224</td>
+    </tr>
+    <tr>
+      <th>SNP_14</th>
+      <td>0.047945</td>
+    </tr>
+    <tr>
+      <th>SNP_03</th>
+      <td>0.047389</td>
+    </tr>
+    <tr>
+      <th>SNP_02</th>
+      <td>0.046950</td>
+    </tr>
+    <tr>
+      <th>SNP_01</th>
+      <td>0.046350</td>
+    </tr>
+    <tr>
+      <th>SNP_15</th>
+      <td>0.038371</td>
+    </tr>
+    <tr>
+      <th>SNP_11</th>
+      <td>0.035263</td>
+    </tr>
+    <tr>
+      <th>SNP_13</th>
+      <td>0.034316</td>
+    </tr>
+    <tr>
+      <th>SNP_09</th>
+      <td>0.028967</td>
+    </tr>
+    <tr>
+      <th>SNP_06</th>
+      <td>0.016798</td>
+    </tr>
+    <tr>
+      <th>mother</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>father</th>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-2eb3d69b-f77c-4de9-847f-e34687666ee8')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none" />
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z" /><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z" />
+  &lt;/svg&gt;
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-2eb3d69b-f77c-4de9-847f-e34687666ee8 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-2eb3d69b-f77c-4de9-847f-e34687666ee8');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+
+<p>상관계수가 낮은 feature들이 많은 것을 알 수 있다.</p>
+
+<p>그러한 feature 들을 제외하고 학습한 뒤 성능을 확인해보자</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 상관계수가 높은 상위 5개 feature
+</span><span class="n">feature_5</span> <span class="o">=</span> <span class="n">feature_imp</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s">'importance'</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">index</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">feature_5</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Index(['trait', 'SNP_05', 'SNP_10', 'SNP_07', 'SNP_08'], dtype='object')
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x_train</span><span class="p">,</span><span class="n">x_valid</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span><span class="n">test_x</span> <span class="o">=</span> <span class="n">data_preprocessing</span><span class="p">()</span>
+
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">feature_5</span><span class="p">]</span>
+<span class="n">x_valid</span> <span class="o">=</span> <span class="n">x_valid</span><span class="p">[</span><span class="n">feature_5</span><span class="p">]</span>
+
+<span class="c1"># 정확한 비교를 위해 똑같은 랜덤포레스트 모델 사용
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+<span class="n">make_plot</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/122070432/212539550-a449400d-1bda-421d-991c-ac8d0293ffcd.png" alt="png" /></p>
+
+<p>학습에 포함시킬 feature 개수를 찾아보자</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">score_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_imp</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+  <span class="n">feature_tmp</span> <span class="o">=</span> <span class="n">feature_imp</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s">'importance'</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">index</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+  <span class="n">x_train</span><span class="p">,</span><span class="n">x_valid</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span><span class="n">test_x</span> <span class="o">=</span> <span class="n">data_preprocessing</span><span class="p">()</span>
+
+  <span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">feature_tmp</span><span class="p">]</span>
+  <span class="n">x_valid</span> <span class="o">=</span> <span class="n">x_valid</span><span class="p">[</span><span class="n">feature_tmp</span><span class="p">]</span>
+
+  <span class="c1"># 정확한 비교를 위해 똑같은 랜덤포레스트 모델 사용
+</span>  <span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span>
+  <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+  <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+  <span class="n">score_list</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'macro'</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">score_list</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[(19, 0.9821551132463967),
+ (18, 0.9821551132463967),
+ (17, 1.0),
+ (16, 0.9638888888888889),
+ (15, 0.9451090781140042),
+ (14, 0.9821551132463967),
+ (13, 0.9638888888888889),
+ (12, 0.9638888888888889),
+ (11, 0.9638888888888889),
+ (10, 0.9451090781140042),
+ (9, 0.9464653397391901),
+ (8, 0.9464653397391901),
+ (7, 0.9464653397391901),
+ (6, 0.9257142857142857),
+ (5, 0.9646739130434782),
+ (4, 0.9277777777777777),
+ (3, 0.7947368421052632),
+ (2, 0.5806451612903226)]
+</code></pre></div></div>
+
+<p>상위 17개의 feature을 사용하는 것이 가장 성능이 좋은 것으로 보임</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">feature_tmp</span> <span class="o">=</span> <span class="n">feature_imp</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s">'importance'</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">index</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">x_train</span><span class="p">,</span><span class="n">x_valid</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span><span class="n">test_x</span> <span class="o">=</span> <span class="n">data_preprocessing</span><span class="p">()</span>
+
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">feature_tmp</span><span class="p">]</span>
+<span class="n">x_valid</span> <span class="o">=</span> <span class="n">x_valid</span><span class="p">[</span><span class="n">feature_tmp</span><span class="p">]</span>
+
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f1_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'macro'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.0
+</code></pre></div></div>
+
+<p>validation 셋에 대한 성능이 좋게 나왔으므로 전체데이터에 대한 학습을 통해 제출</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 제출 함수
+</span><span class="k">def</span> <span class="nf">submit</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">pred</span><span class="p">):</span>
+  <span class="n">submit</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/data/유전체 정보 품종 분류/sample_submission.csv'</span><span class="p">)</span>
+  <span class="n">submit</span><span class="p">[</span><span class="s">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="n">class_le</span><span class="p">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+  <span class="n">submit</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s">'/content/drive/MyDrive/Colab Notebooks/dacon/</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s">.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">'Done'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">[</span><span class="n">feature_tmp</span><span class="p">],</span> <span class="n">train_y</span><span class="p">)</span>
+
+<span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">[</span><span class="n">feature_tmp</span><span class="p">])</span>
+<span class="n">submit</span><span class="p">(</span><span class="s">'rf_17_feature'</span><span class="p">,</span><span class="n">pred</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Done
+</code></pre></div></div>
+
+<p>결과를 확인해보았으나 베이스라인코드의 제출결과와 같은 결과가 나옴</p>
+
+<p>릿지 모델에도 적용</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">RidgeClassifier</span>
+
+<span class="n">x_train</span><span class="p">,</span><span class="n">x_valid</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span><span class="n">test_x</span> <span class="o">=</span> <span class="n">data_preprocessing</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">RidgeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div id="df-099cfbe4-314d-4f20-9302-72e61168f5a9">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.515546</td>
+      <td>0.008958</td>
+      <td>0.010171</td>
+      <td>0.011026</td>
+      <td>0.011176</td>
+      <td>0.006956</td>
+      <td>0.002418</td>
+      <td>0.023188</td>
+      <td>0.007393</td>
+      <td>0.013038</td>
+      <td>0.007025</td>
+      <td>0.013207</td>
+      <td>0.012130</td>
+      <td>0.006696</td>
+      <td>0.019875</td>
+      <td>0.005807</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.352045</td>
+      <td>0.040708</td>
+      <td>0.055363</td>
+      <td>0.086292</td>
+      <td>0.110782</td>
+      <td>0.237609</td>
+      <td>0.005510</td>
+      <td>0.124689</td>
+      <td>0.114634</td>
+      <td>0.083659</td>
+      <td>0.115097</td>
+      <td>0.043387</td>
+      <td>0.019054</td>
+      <td>0.052472</td>
+      <td>0.110547</td>
+      <td>0.042401</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.867591</td>
+      <td>0.031750</td>
+      <td>0.065533</td>
+      <td>0.075266</td>
+      <td>0.121959</td>
+      <td>0.230653</td>
+      <td>0.003092</td>
+      <td>0.101501</td>
+      <td>0.107241</td>
+      <td>0.096697</td>
+      <td>0.108072</td>
+      <td>0.056594</td>
+      <td>0.006924</td>
+      <td>0.045776</td>
+      <td>0.090672</td>
+      <td>0.036594</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-099cfbe4-314d-4f20-9302-72e61168f5a9')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none" />
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z" /><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z" />
+  &lt;/svg&gt;
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-099cfbe4-314d-4f20-9302-72e61168f5a9 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-099cfbe4-314d-4f20-9302-72e61168f5a9');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">average_feature_effects</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">coef_</span> <span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)).</span><span class="n">ravel</span><span class="p">()</span>
+<span class="n">feature_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+  <span class="c1"># 각 클래스 별 상관관계가 높은 feature 상위 5개씩 학습할 feature에 추가
+</span>  <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">average_feature_effects</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="o">-</span><span class="mi">10</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">:</span>
+    <span class="n">feature_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="n">feature_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">feature_list</span><span class="p">))</span>
+
+<span class="n">x_train</span><span class="p">,</span><span class="n">x_valid</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span><span class="n">test_x</span> <span class="o">=</span> <span class="n">data_preprocessing</span><span class="p">()</span>
+
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">x_train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]]</span>
+<span class="n">x_valid</span> <span class="o">=</span> <span class="n">x_valid</span><span class="p">[</span><span class="n">x_valid</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]]</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">RidgeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+<span class="n">f1_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'macro'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9821551132463967
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">make_plot</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/122070432/212539551-6e165c96-cb87-49e6-a2a5-bc48bac4aca0.png" alt="png" /></p>
+
+<p>validation 셋에 대한 성능은 잘 나오지 않지만 제출결과 확인을 위해 제출</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span> <span class="o">=</span> <span class="n">RidgeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">CFG</span><span class="p">.</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">[</span><span class="n">train_x</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]],</span> <span class="n">train_y</span><span class="p">)</span>
+
+<span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">[</span><span class="n">test_x</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]])</span>
+<span class="n">submit</span><span class="p">(</span><span class="s">'ridge_10_feature'</span><span class="p">,</span><span class="n">pred</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Done
+</code></pre></div></div>
+
+<p>98점으로 약 2점가량 향상된 점수를 보임!</p>
+
+<p>릿지모델을 통한 feature selection으로 성능향상을 노려봐야 할 것 같음</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#dacon" class="page__taxonomy-item p-category" rel="tag">Dacon</a><span class="sep">, </span>
+    
+      <a href="/tags/#ml" class="page__taxonomy-item p-category" rel="tag">ml</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#dacon" class="page__taxonomy-item p-category" rel="tag">Dacon</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-11T00:00:00+09:00">January 11, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BDacon%5D+%EC%9C%A0%EC%A0%84%EC%B2%B4+%EC%A0%95%EB%B3%B4+%EB%B6%84%EB%A5%98+%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C%20http%3A%2F%2Flocalhost%3A4000%2Fdacon%2Fdacon-gene%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdacon%2Fdacon-gene%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdacon%2Fdacon-gene%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/dacon/dacon-wine-classifier/" class="pagination--pager" title="[Dacon] 와인 품질 분류 경진대회
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/dacon/dacon-wine-classifier/" rel="permalink">[Dacon] 와인 품질 분류 경진대회
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-12-06T00:00:00+09:00">December 6, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          20 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">데이콘 실무역량 강화교육 간에 실시한 프로젝트인 와인분류 프로젝트입니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/dacon/dacon-first/" rel="permalink">[Dacon] 구내식당 식수 예측
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-10-24T00:00:00+09:00">October 24, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          7 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">데이콘 실무역량 강화교육을 통해 경험했던 첫 번째 프로젝트에 대한 코드입니다. 코랩을 사용하였고 간단한 EDA를 통해 데이터의 특성을 파악하고 그에 따른 모델을 만들어 식수인원을 예측해보았습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/first-post/" rel="permalink">[Jekyll] 블로그 만들기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2020-05-25T00:00:00+09:00">May 25, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">블로그를 만들어 포스팅하기 까지
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Tae Hyeon Kim. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

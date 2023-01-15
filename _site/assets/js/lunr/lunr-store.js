@@ -18,8 +18,8 @@ var store = [{
         "teaser": null
       },{
         "title": "[Dacon] 유전체 정보 분류 경진대회",
-        "excerpt":"데이콘 유전체 정보 품종 분류 AI 경진대회 import matplotlib.pyplot as plt plt.rc('font', family='NanumBarunGothic') Import import pandas as pd import random import os import numpy as np import matplotlib.pyplot as plt from sklearn import preprocessing from sklearn.ensemble import RandomForestClassifier class CFG: SEED = 42 def seed_everything(seed): random.seed(seed) os.environ['PYTHONHASHSEED'] = str(seed) np.random.seed(seed)...","categories": ["Dacon"],
+        "excerpt":"데이콘 유전체 정보 품종 분류 AI 경진대회 Import import pandas as pd import random import os import numpy as np import matplotlib.pyplot as plt from sklearn import preprocessing from sklearn.ensemble import RandomForestClassifier class CFG: SEED = 42 def seed_everything(seed): random.seed(seed) os.environ['PYTHONHASHSEED'] = str(seed) np.random.seed(seed) seed_everything(CFG.SEED) # Seed 고정 Data Load...","categories": ["Dacon"],
         "tags": ["python","Dacon","ml"],
-        "url": "/dacon/test2/",
+        "url": "/dacon/dacon-gene/",
         "teaser": null
       }]
