@@ -22,4 +22,10 @@ var store = [{
         "tags": ["python","Dacon","ml"],
         "url": "/dacon/dacon-gene/",
         "teaser": null
+      },{
+        "title": "[Programmers] 이모티콘 할인행사",
+        "excerpt":"프로그래머스 이모티콘 할인행사 1. 문제 문제링크 : https://school.programmers.co.kr/learn/courses/30/lessons/150368 문제 설명이 매우 복잡하게 느껴졌지만 사용자들의 할인율 조건(?)과 이모티콘 플러스를 가입하기 전까지의 한도금액 정보와 이모티콘의 금액 정보를 통해 각 이모티콘의 할인율을 조정하여 이모티콘 플러스의 가입자를 최대한 늘리는 것 이모티콘 판매액을 최대한 늘리는 것 이 두 조건을 만족하는 [이모티콘 플러스의 가입자 수, 이모티콘...","categories": ["Programmers"],
+        "tags": ["python","algorithm"],
+        "url": "/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/",
+        "teaser": null
       }]
