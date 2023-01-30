@@ -10,7 +10,7 @@ author_profile: true
 프로그래머스 이모티콘 할인행사
 
 # 1. 문제
-문제링크 : https://school.programmers.co.kr/learn/courses/30/lessons/150368
+문제링크 : [https://school.programmers.co.kr/learn/courses/30/lessons/150368](https://school.programmers.co.kr/learn/courses/30/lessons/150368){:target="_blank"}
 
 문제 설명이 매우 복잡하게 느껴졌지만 
 
