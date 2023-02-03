@@ -28,4 +28,10 @@ var store = [{
         "tags": ["python","algorithm"],
         "url": "/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/",
         "teaser": null
+      },{
+        "title": "[Dacon] 여행상품 신청예측",
+        "excerpt":"데이콘 Basic 여행상품 신청예측 from google.colab import drive drive.mount('/content/drive') Mounted at /content/drive 0.준비 import pandas as pd train = pd.read_csv('/content/drive/MyDrive/data/여행상품신청/train.csv') test = pd.read_csv('/content/drive/MyDrive/data/여행상품신청/test.csv') sample_submission = pd.read_csv('/content/drive/MyDrive/data/여행상품신청/sample_submission.csv') id : 샘플 아이디 Age : 나이 TypeofContact : 고객의 제품 인지 방법 (회사의 홍보 or 스스로 검색) CityTier : 주거 중인 도시의 등급....","categories": ["Dacon"],
+        "tags": ["python","Dacon","ml"],
+        "url": "/dacon/%EB%8D%B0%EC%9D%B4%EC%BD%98-%EC%97%AC%ED%96%89%EC%83%81%ED%92%88%EC%8B%A0%EC%B2%AD%EC%98%88%EC%B8%A1/",
+        "teaser": null
       }]
