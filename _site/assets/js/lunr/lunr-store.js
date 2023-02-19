@@ -40,4 +40,10 @@ var store = [{
         "tags": ["python","algorithm","dfs/bfs"],
         "url": "/programmers/programmers-network-solution/",
         "teaser": null
+      },{
+        "title": "[Programmers] 네트워크",
+        "excerpt":"1. 문제 문제링크 : https://school.programmers.co.kr/learn/courses/30/lessons/43162 먼저 입력은 컴퓨터의 개수 n 과 컴퓨터 간 연결 관계에 대한 리스트 computers 가 주어지고 두 정보를 이용하여 네트워크의 개수 즉, 컴퓨터가 몇 묶음으로 연결되어있는지를 출력해야 한다. 2. 접근 방법 이 문제를 해결하기 위해서는 computers[i] 를 통해 i 번째 컴퓨터와 연결되어있는 컴퓨터의 정보를 얻고 만약...","categories": ["Programmers"],
+        "tags": ["python","algorithm"],
+        "url": "/programmers/test/",
+        "teaser": null
       }]
