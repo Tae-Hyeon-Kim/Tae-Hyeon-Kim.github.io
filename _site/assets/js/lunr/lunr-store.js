@@ -35,6 +35,12 @@ var store = [{
         "url": "/dacon/prediction-of-trevel-product/",
         "teaser": null
       },{
+        "title": "[Dacon] 여행상품 신청예측",
+        "excerpt":"데이콘 Basic 여행상품 신청예측 from google.colab import drive drive.mount('/content/drive') Mounted at /content/drive 0.준비 import pandas as pd train = pd.read_csv('/content/drive/MyDrive/data/여행상품신청/train.csv') test = pd.read_csv('/content/drive/MyDrive/data/여행상품신청/test.csv') sample_submission = pd.read_csv('/content/drive/MyDrive/data/여행상품신청/sample_submission.csv') id : 샘플 아이디 Age : 나이 TypeofContact : 고객의 제품 인지 방법 (회사의 홍보 or 스스로 검색) CityTier : 주거 중인 도시의 등급....","categories": ["Dacon"],
+        "tags": ["python","Dacon","ml"],
+        "url": "/dacon/test/",
+        "teaser": null
+      },{
         "title": "[Programmers] 네트워크",
         "excerpt":"프로그래머스 코팅테스트 연습문제를 푸는 과정에서 굉장히 깔끔하게 풀린 문제가 있어서 풀이과정을 공유하고자 작성하게 되었다! 1. 문제 문제링크 : https://school.programmers.co.kr/learn/courses/30/lessons/43162 먼저 입력은 컴퓨터의 개수 n 과 컴퓨터 간 연결 관계에 대한 리스트 computers 가 주어지고 두 정보를 이용하여 네트워크의 개수 즉, 컴퓨터가 몇 묶음으로 연결되어있는지를 출력해야 한다. 2. 접근 방법 이...","categories": ["Programmers"],
         "tags": ["python","algorithm","dfs/bfs"],
