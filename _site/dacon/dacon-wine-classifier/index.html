@@ -318,33 +318,33 @@
 
 <h2 id="1-데이터-로드">1) 데이터 로드</h2>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="p">.</span><span class="n">mount</span><span class="p">(</span><span class="s">'/content/drive'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s">'/content/drive'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span><span class="n">family</span> <span class="o">=</span> <span class="s">'NanumBarunGothic'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span><span class="n">family</span> <span class="o">=</span> <span class="s">'NanumBarunGothic'</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
-<span class="kn">from</span> <span class="nn">xgboost.sklearn</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
-<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="n">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="n">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="n">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+<span class="kn">from</span> <span class="n">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
+<span class="kn">from</span> <span class="n">xgboost.sklearn</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+<span class="kn">from</span> <span class="n">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
+<span class="kn">from</span> <span class="n">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+<span class="kn">from</span> <span class="n">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="n">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="n">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/train.csv'</span><span class="p">)</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/test.csv'</span><span class="p">)</span>
-<span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/sample_submission.csv'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/train.csv'</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/test.csv'</span><span class="p">)</span>
+<span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/sample_submission.csv'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span>
@@ -652,7 +652,7 @@
     </div>
   </div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data_preprocessing</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">data_preprocessing</span><span class="p">()</span>
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3      26
@@ -896,21 +896,21 @@ Name: quality, dtype: int64
 
 <h2 id="2-전처리">2) 전처리</h2>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
 <span class="k">def</span> <span class="nf">ACC</span><span class="p">(</span><span class="n">true</span><span class="p">,</span><span class="n">pred</span><span class="p">):</span>
-  <span class="n">score</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">true</span><span class="o">==</span><span class="n">pred</span><span class="p">)</span>
+  <span class="n">score</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">mean</span><span class="p">(</span><span class="n">true</span><span class="o">==</span><span class="n">pred</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">score</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_plot</span><span class="p">():</span>
-  <span class="n">acc</span> <span class="o">=</span> <span class="n">ACC</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+  <span class="n">acc</span> <span class="o">=</span> <span class="nc">ACC</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
 
-  <span class="n">validation</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'y_valid'</span><span class="p">:</span><span class="n">y_valid</span><span class="p">,</span><span class="s">'y_pred'</span><span class="p">:</span><span class="n">y_pred</span><span class="p">})</span>
+  <span class="n">validation</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">({</span><span class="s">'y_valid'</span><span class="p">:</span><span class="n">y_valid</span><span class="p">,</span><span class="s">'y_pred'</span><span class="p">:</span><span class="n">y_pred</span><span class="p">})</span>
 
-  <span class="n">validation_count</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_valid'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">sort_index</span><span class="p">())</span>
-  <span class="n">validation_count</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_pred'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">sort_index</span><span class="p">().</span><span class="n">index</span><span class="p">,</span><span class="s">'y_pred'</span><span class="p">]</span><span class="o">=</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_pred'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">sort_index</span><span class="p">().</span><span class="n">values</span>
-  <span class="n">validation_count</span> <span class="o">=</span> <span class="n">validation_count</span><span class="p">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">validation_count</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_valid'</span><span class="p">].</span><span class="nf">value_counts</span><span class="p">().</span><span class="nf">sort_index</span><span class="p">())</span>
+  <span class="n">validation_count</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_pred'</span><span class="p">].</span><span class="nf">value_counts</span><span class="p">().</span><span class="nf">sort_index</span><span class="p">().</span><span class="n">index</span><span class="p">,</span><span class="s">'y_pred'</span><span class="p">]</span><span class="o">=</span><span class="n">validation</span><span class="p">[</span><span class="s">'y_pred'</span><span class="p">].</span><span class="nf">value_counts</span><span class="p">().</span><span class="nf">sort_index</span><span class="p">().</span><span class="n">values</span>
+  <span class="n">validation_count</span> <span class="o">=</span> <span class="n">validation_count</span><span class="p">.</span><span class="nf">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
   <span class="n">x</span> <span class="o">=</span> <span class="n">validation_count</span><span class="p">.</span><span class="n">index</span>
   <span class="n">y_valid_count</span> <span class="o">=</span> <span class="n">validation_count</span><span class="p">[</span><span class="s">'y_valid'</span><span class="p">]</span>
@@ -918,25 +918,25 @@ Name: quality, dtype: int64
 
   <span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>
 
-  <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 
-  <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'ACC: '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">acc</span><span class="p">)[:</span><span class="mi">6</span><span class="p">])</span>
-  <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'quality'</span><span class="p">)</span>
-  <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'count'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="s">'ACC: '</span><span class="o">+</span><span class="nf">str</span><span class="p">(</span><span class="n">acc</span><span class="p">)[:</span><span class="mi">6</span><span class="p">])</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="s">'quality'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">ylabel</span><span class="p">(</span><span class="s">'count'</span><span class="p">)</span>
 
-  <span class="n">p1</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">([</span><span class="n">idx</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">y_valid_count</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s">'real'</span><span class="p">)</span>
-  <span class="n">p2</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">([</span><span class="n">idx</span><span class="o">+</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">y_pred_count</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s">'pred'</span><span class="p">)</span>
+  <span class="n">p1</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">bar</span><span class="p">([</span><span class="n">idx</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">y_valid_count</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s">'real'</span><span class="p">)</span>
+  <span class="n">p2</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">bar</span><span class="p">([</span><span class="n">idx</span><span class="o">+</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">y_pred_count</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s">'pred'</span><span class="p">)</span>
 
-  <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
-  <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">legend</span><span class="p">()</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
 </code></pre></div></div>
 
 <h3 id="원핫인코딩">원핫인코딩</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">].</span><span class="n">isin</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">].</span><span class="nf">isin</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])])</span>
 
-<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span><span class="n">pd</span><span class="p">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">'type'</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">test</span><span class="p">,</span><span class="n">pd</span><span class="p">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s">'type'</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span><span class="n">pd</span><span class="p">.</span><span class="nf">get_dummies</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">'type'</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">concat</span><span class="p">([</span><span class="n">test</span><span class="p">,</span><span class="n">pd</span><span class="p">.</span><span class="nf">get_dummies</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s">'type'</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">train</span>
 </code></pre></div></div>
 
@@ -1269,13 +1269,13 @@ Name: quality, dtype: int64
 <h3 id="feature-engineering">feature engineering</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_plots</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-  <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s">' vs quality'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s">' vs quality'</span><span class="p">)</span>
 
-  <span class="n">x</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'quality'</span><span class="p">).</span><span class="n">mean</span><span class="p">().</span><span class="n">reset_index</span><span class="p">()[</span><span class="s">'quality'</span><span class="p">]</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'quality'</span><span class="p">).</span><span class="n">mean</span><span class="p">().</span><span class="n">reset_index</span><span class="p">()[</span><span class="n">text</span><span class="p">]</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="nf">groupby</span><span class="p">(</span><span class="s">'quality'</span><span class="p">).</span><span class="nf">mean</span><span class="p">().</span><span class="nf">reset_index</span><span class="p">()[</span><span class="s">'quality'</span><span class="p">]</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="nf">groupby</span><span class="p">(</span><span class="s">'quality'</span><span class="p">).</span><span class="nf">mean</span><span class="p">().</span><span class="nf">reset_index</span><span class="p">()[</span><span class="n">text</span><span class="p">]</span>
   
-  <span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-  <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="p">[</span><span class="s">'new_col'</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">'volatile acidity'</span><span class="p">]</span> <span class="o">/</span> <span class="n">train</span><span class="p">[</span><span class="s">'fixed acidity'</span><span class="p">]</span>
@@ -1646,7 +1646,7 @@ Name: quality, dtype: int64
     </div>
   </div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">|</span><span class="n">train</span><span class="p">.</span><span class="n">corr</span><span class="p">()[</span><span class="s">'quality'</span><span class="p">].</span><span class="n">to_frame</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">|</span><span class="n">train</span><span class="p">.</span><span class="nf">corr</span><span class="p">()[</span><span class="s">'quality'</span><span class="p">].</span><span class="nf">to_frame</span><span class="p">()</span>
 </code></pre></div></div>
 
 <div id="df-4e9a379c-a49a-43ca-8481-fe9d2eba88fd">
@@ -2187,33 +2187,33 @@ Name: quality, dtype: int64
 <span class="c1"># train[train.columns[2:-6]] = scaler.fit_transform(train[train.columns[2:-6]])
 # train[train.columns[-3:]] = scaler.fit_transform(train[train.columns[-3:]])
 </span>
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="nc">MinMaxScaler</span><span class="p">()</span>
 
-<span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
-<span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
-<span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]])</span>
-<span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]])</span>
+<span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="nf">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]])</span>
+<span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]])</span>
 </code></pre></div></div>
 
 <h2 id="3-성능-검증">3) 성능 검증</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">data_preprocessing</span><span class="p">():</span>
   
-  <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/train.csv'</span><span class="p">)</span>
-  <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/test.csv'</span><span class="p">)</span>
-  <span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/sample_submission.csv'</span><span class="p">)</span>
+  <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/train.csv'</span><span class="p">)</span>
+  <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/test.csv'</span><span class="p">)</span>
+  <span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">'/content/drive/MyDrive/와인1/sample_submission.csv'</span><span class="p">)</span>
 
-  <span class="n">train</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">].</span><span class="n">isin</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])])</span>
-  <span class="n">train</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">].</span><span class="n">isin</span><span class="p">([</span><span class="mi">7</span><span class="p">])])</span>
+  <span class="n">train</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">].</span><span class="nf">isin</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])])</span>
+  <span class="n">train</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">].</span><span class="nf">isin</span><span class="p">([</span><span class="mi">7</span><span class="p">])])</span>
 
-  <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">pd</span><span class="p">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">'type'</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-  <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">test</span><span class="p">,</span> <span class="n">pd</span><span class="p">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s">'type'</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">pd</span><span class="p">.</span><span class="nf">get_dummies</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">'type'</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">concat</span><span class="p">([</span><span class="n">test</span><span class="p">,</span> <span class="n">pd</span><span class="p">.</span><span class="nf">get_dummies</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s">'type'</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
   <span class="n">train</span><span class="p">[</span><span class="s">'new_col'</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">'volatile acidity'</span><span class="p">]</span> <span class="o">/</span> <span class="n">train</span><span class="p">[</span><span class="s">'fixed acidity'</span><span class="p">]</span>
   <span class="n">train</span><span class="p">[</span><span class="s">'new_col2'</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">'free sulfur dioxide'</span><span class="p">]</span> <span class="o">/</span> <span class="n">train</span><span class="p">[</span><span class="s">'total sulfur dioxide'</span><span class="p">]</span>
   <span class="n">train</span><span class="p">[</span><span class="s">'new_col3'</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">'volatile acidity'</span><span class="p">]</span> <span class="o">+</span> <span class="n">train</span><span class="p">[</span><span class="s">'fixed acidity'</span><span class="p">]</span>
 
-  <span class="k">print</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">sort_index</span><span class="p">())</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">].</span><span class="nf">value_counts</span><span class="p">().</span><span class="nf">sort_index</span><span class="p">())</span>
 
   
   <span class="k">return</span> <span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">,</span><span class="n">submission</span>
@@ -2227,17 +2227,17 @@ Name: quality, dtype: int64
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scaling</span><span class="p">(</span><span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">):</span>
-  <span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+  <span class="n">scaler</span> <span class="o">=</span> <span class="nc">MinMaxScaler</span><span class="p">()</span>
 
-  <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
-  <span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
+  <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
+  <span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="nf">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
   
-  <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]])</span>
-  <span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]])</span>
+  <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]])</span>
+  <span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]])</span>
   <span class="k">return</span> <span class="n">train</span><span class="p">,</span><span class="n">test</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data_preprocessing</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">data_preprocessing</span><span class="p">()</span>
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3      26
@@ -3080,9 +3080,9 @@ Name: quality, dtype: int64
     </div>
   </div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data_preprocessing</span><span class="p">()</span>
-<span class="n">test_preprocessing</span><span class="p">()</span>
-<span class="n">scaling</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">data_preprocessing</span><span class="p">()</span>
+<span class="nf">test_preprocessing</span><span class="p">()</span>
+<span class="nf">scaling</span><span class="p">()</span>
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3      26
@@ -3095,7 +3095,7 @@ Name: quality, dtype: int64
 Name: quality, dtype: int64
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">features</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:].</span><span class="n">drop</span><span class="p">([</span><span class="s">'type'</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">features</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:].</span><span class="nf">drop</span><span class="p">([</span><span class="s">'type'</span><span class="p">])</span>
 <span class="c1"># features = train.columns[2:].drop(['type','sulphates','total sulfur dioxide','residual sugar','free sulfur dioxide','citric acid','pH','fixed acidity'])
 # features = train.columns[2:].drop(['type','total sulfur dioxide','pH'])
 # features = train.columns[2:].drop(['type','new_col',	'new_col2'	,'new_col3'])
@@ -3114,30 +3114,30 @@ Name: quality, dtype: int64
 <span class="n">y</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">]</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
-<span class="n">kfold</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
+<span class="n">kfold</span> <span class="o">=</span> <span class="nc">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">accs</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">train_idx</span><span class="p">,</span> <span class="n">valid_idx</span> <span class="ow">in</span> <span class="n">kfold</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">train_idx</span><span class="p">,</span> <span class="n">valid_idx</span> <span class="ow">in</span> <span class="n">kfold</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
   <span class="n">X_train</span><span class="p">,</span><span class="n">X_valid</span> <span class="o">=</span> <span class="n">X</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span><span class="n">X</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid_idx</span><span class="p">]</span>
   <span class="n">y_train</span><span class="p">,</span><span class="n">y_valid</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span><span class="n">y</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid_idx</span><span class="p">]</span>
 
-  <span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="nc">RandomForestClassifier</span><span class="p">()</span>
 
-  <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+  <span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
   
   <span class="c1">#추가
-</span>  <span class="n">models</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</span>  <span class="n">models</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
-  <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
-  <span class="n">accs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">ACC</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-  <span class="n">make_plot</span><span class="p">()</span>
+  <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+  <span class="n">accs</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nc">ACC</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
+  <span class="nf">make_plot</span><span class="p">()</span>
 
-  <span class="n">pred_</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_valid</span><span class="p">).</span><span class="n">reset_index</span><span class="p">()</span>
+  <span class="n">pred_</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_valid</span><span class="p">).</span><span class="nf">reset_index</span><span class="p">()</span>
   <span class="n">pred_</span><span class="p">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'valid'</span><span class="p">,</span><span class="s">'pred'</span><span class="p">]</span>
   <span class="n">pred_</span><span class="p">[</span><span class="s">'T/F'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pred_</span><span class="p">[</span><span class="s">'valid'</span><span class="p">]</span><span class="o">==</span><span class="n">pred_</span><span class="p">[</span><span class="s">'pred'</span><span class="p">]</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">pred_</span><span class="p">[</span><span class="n">pred_</span><span class="p">[</span><span class="s">'T/F'</span><span class="p">]</span><span class="o">==</span><span class="bp">False</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">sort_index</span><span class="p">())</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">pred_</span><span class="p">[</span><span class="n">pred_</span><span class="p">[</span><span class="s">'T/F'</span><span class="p">]</span><span class="o">==</span><span class="bp">False</span><span class="p">].</span><span class="nf">value_counts</span><span class="p">().</span><span class="nf">sort_index</span><span class="p">())</span>
 </code></pre></div></div>
 
 <p><img src="%EC%99%80%EC%9D%B8_%EB%B6%84%EB%A5%98_%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C_files/%EC%99%80%EC%9D%B8_%EB%B6%84%EB%A5%98_%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C_30_0.png" alt="png" /></p>
@@ -3246,9 +3246,9 @@ dtype: int64
 
 <h1 id="1모델링">1.모델링</h1>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">,</span><span class="n">submission</span> <span class="o">=</span> <span class="n">data_preprocessing</span><span class="p">()</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">test_preprocessing</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-<span class="n">train</span><span class="p">,</span><span class="n">test</span> <span class="o">=</span> <span class="n">scaling</span><span class="p">(</span><span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">,</span><span class="n">submission</span> <span class="o">=</span> <span class="nf">data_preprocessing</span><span class="p">()</span>
+<span class="n">test</span> <span class="o">=</span> <span class="nf">test_preprocessing</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">train</span><span class="p">,</span><span class="n">test</span> <span class="o">=</span> <span class="nf">scaling</span><span class="p">(</span><span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3      26
@@ -3261,7 +3261,7 @@ dtype: int64
 Name: quality, dtype: int64
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">features</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:].</span><span class="n">drop</span><span class="p">([</span><span class="s">'type'</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">features</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:].</span><span class="nf">drop</span><span class="p">([</span><span class="s">'type'</span><span class="p">])</span>
 <span class="c1"># features = train.columns[2:].drop(['type','sulphates','total sulfur dioxide','residual sugar','free sulfur dioxide','citric acid','pH','fixed acidity'])
 # features = train.columns[2:].drop(['type','total sulfur dioxide','pH'])
 # features = train.columns[2:].drop(['type','new_col',	'new_col2'	,'new_col3'])
@@ -3633,24 +3633,24 @@ Name: quality, dtype: int64
 <span class="n">y</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">'quality'</span><span class="p">]</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="n">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+<span class="kn">from</span> <span class="n">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">rfc</span> <span class="o">=</span> <span class="nc">RandomForestClassifier</span><span class="p">()</span>
 
-<span class="n">models</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="p">)</span>
+<span class="n">models</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">rfc</span><span class="p">)</span>
 
-<span class="n">gbc</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">()</span>
+<span class="n">gbc</span> <span class="o">=</span> <span class="nc">GradientBoostingClassifier</span><span class="p">()</span>
 
-<span class="n">models</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">gbc</span><span class="p">)</span>
+<span class="n">models</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">gbc</span><span class="p">)</span>
 
-<span class="n">etc</span> <span class="o">=</span> <span class="n">ExtraTreesClassifier</span><span class="p">()</span>
+<span class="n">etc</span> <span class="o">=</span> <span class="nc">ExtraTreesClassifier</span><span class="p">()</span>
 
-<span class="n">models</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">etc</span><span class="p">)</span>
+<span class="n">models</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">etc</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">models</span>
@@ -3698,10 +3698,10 @@ Name: quality, dtype: int64
     <span class="p">}</span>
     <span class="p">]</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">):</span>
-  <span class="n">model</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">param_grid</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cv</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">return_train_score</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">model</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">):</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="nc">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">param_grid</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cv</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">return_train_score</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-  <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 
   <span class="n">best_models</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">best_estimator_</span>
 
@@ -3715,10 +3715,10 @@ Name: quality, dtype: int64
  2: ExtraTreesClassifier(criterion='entropy', n_estimators=300, random_state=0)}
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred0</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
-<span class="n">pred1</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
-<span class="n">pred2</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
-<span class="n">pred</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'pred0'</span><span class="p">:</span><span class="n">pred0</span><span class="p">,</span><span class="s">'pred1'</span><span class="p">:</span><span class="n">pred1</span><span class="p">,</span><span class="s">'pred2'</span><span class="p">:</span><span class="n">pred2</span><span class="p">})</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred0</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+<span class="n">pred1</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+<span class="n">pred2</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">({</span><span class="s">'pred0'</span><span class="p">:</span><span class="n">pred0</span><span class="p">,</span><span class="s">'pred1'</span><span class="p">:</span><span class="n">pred1</span><span class="p">,</span><span class="s">'pred2'</span><span class="p">:</span><span class="n">pred2</span><span class="p">})</span>
 <span class="n">pred</span>
 </code></pre></div></div>
 
@@ -3892,7 +3892,7 @@ Name: quality, dtype: int64
     </div>
   </div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred</span><span class="p">[</span><span class="s">'pred_hard'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pred</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred</span><span class="p">[</span><span class="s">'pred_hard'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pred</span><span class="p">.</span><span class="nf">mode</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nf">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">pred</span>
 </code></pre></div></div>
 
@@ -4078,11 +4078,11 @@ Name: quality, dtype: int64
     </div>
   </div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred0</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
-<span class="n">pred1</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
-<span class="n">pred2</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
-<span class="n">pred_soft</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pred0</span><span class="o">+</span><span class="n">pred1</span><span class="o">+</span><span class="n">pred2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">pred_soft</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred0</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+<span class="n">pred1</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+<span class="n">pred2</span> <span class="o">=</span> <span class="n">best_models</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+<span class="n">pred_soft</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">pred0</span><span class="o">+</span><span class="n">pred1</span><span class="o">+</span><span class="n">pred2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">pred_soft</span><span class="p">.</span><span class="nf">head</span><span class="p">()</span>
 </code></pre></div></div>
 
 <div id="df-ddb87f59-ab0f-4aa3-8800-38e71f1593d9">
@@ -4242,7 +4242,7 @@ Name: quality, dtype: int64
     </div>
   </div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred</span><span class="p">[</span><span class="s">'pred_soft'</span><span class="p">]</span><span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred_soft</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">+</span><span class="mi">3</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred</span><span class="p">[</span><span class="s">'pred_soft'</span><span class="p">]</span><span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">argmax</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="n">pred_soft</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">+</span><span class="mi">3</span>
 <span class="n">pred</span>
 </code></pre></div></div>
 
@@ -4638,11 +4638,11 @@ Name: quality, dtype: int64
   </div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">submission</span><span class="p">[</span><span class="s">'quality'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="s">'pred_hard'</span><span class="p">]</span>
-<span class="n">submission</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'submission_hard.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">submission</span><span class="p">.</span><span class="nf">to_csv</span><span class="p">(</span><span class="s">'submission_hard.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">submission</span><span class="p">[</span><span class="s">'quality'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="s">'pred_soft'</span><span class="p">]</span>
-<span class="n">submission</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'submission_soft.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">submission</span><span class="p">.</span><span class="nf">to_csv</span><span class="p">(</span><span class="s">'submission_soft.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </code></pre></div></div>
 
         
@@ -4832,7 +4832,7 @@ Name: quality, dtype: int64
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" rel="permalink">[Programmers] 이모티콘 할인행사
+        <a href="/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC-copy/" rel="permalink">[Programmers] 이모티콘 할인행사
 </a>
       
     </h2>

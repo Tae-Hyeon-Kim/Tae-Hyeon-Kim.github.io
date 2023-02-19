@@ -23,7 +23,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Just Do it">
 <meta property="og:title" content="[Programmers] 이모티콘 할인행사">
-<meta property="og:url" content="http://localhost:4000/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/">
+<meta property="og:url" content="http://localhost:4000/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC-copy/">
 
 
   <meta property="og:description" content="프로그래머스 이모티콘 할인행사">
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/">
+<link rel="canonical" href="http://localhost:4000/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC-copy/">
 
 
 
@@ -264,7 +264,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" class="u-url" itemprop="url">[Programmers] 이모티콘 할인행사
+            <a href="http://localhost:4000/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC-copy/" class="u-url" itemprop="url">[Programmers] 이모티콘 할인행사
 </a>
           </h1>
           
@@ -308,9 +308,7 @@
             </nav>
           </aside>
         
-        <p>프로그래머스 이모티콘 할인행사</p>
-
-<h1 id="1-문제">1. 문제</h1>
+        <h1 id="1-문제">1. 문제</h1>
 <p>문제링크 : <a href="https://school.programmers.co.kr/learn/courses/30/lessons/150368" target="_blank">https://school.programmers.co.kr/learn/courses/30/lessons/150368</a></p>
 
 <p>문제 설명이 매우 복잡하게 느껴졌지만</p>
@@ -331,17 +329,17 @@
 <p>우선 <code class="language-plaintext highlighter-rouge">사용자 수</code>, <code class="language-plaintext highlighter-rouge">각 사용자의 할인 조건</code>, <code class="language-plaintext highlighter-rouge">각 사용자의 구매 한도</code>, 등 변수로 지정할 것이 많기에</p>
 
 <p>나름대로의 네이밍으로 변수를 지정해주었다</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_users</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>            <span class="c1"># 유저 수
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_users</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>            <span class="c1"># 유저 수
 </span><span class="n">cond_list</span> <span class="o">=</span> <span class="p">[]</span>                  
 <span class="n">limit_list</span> <span class="o">=</span> <span class="p">[]</span>                 
 <span class="n">n_sub</span> <span class="o">=</span> <span class="mi">0</span>                       <span class="c1"># 이모티콘 플러스 가입자 수 
-</span><span class="n">n_emo</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span>          <span class="c1"># 이모티콘 수 
+</span><span class="n">n_emo</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span>          <span class="c1"># 이모티콘 수 
 </span><span class="n">dis_emo_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_emo</span>     <span class="c1"># 각 이모티콘 별 할인율
 </span><span class="n">price_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_users</span>      <span class="c1"># 각 사용자의 구매 총합
 </span>
 <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
-    <span class="n">cond_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># 각 사용자의 이모티콘을 구매하는 할인 조건 리스트
-</span>    <span class="n">limit_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 각 사용자의 구매 비용 한도 (넘을시 이모티콘플러스 서비스 가입)
+    <span class="n">cond_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># 각 사용자의 이모티콘을 구매하는 할인 조건 리스트
+</span>    <span class="n">limit_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 각 사용자의 구매 비용 한도 (넘을시 이모티콘플러스 서비스 가입)
 </span></code></pre></div></div>
 
 <p>우선 조건이 이모티콘 플러스의 가입자를 최대한 늘리는 것이기 때문에 우선 사용자들이</p>
@@ -360,40 +358,40 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">emoticons</span><span class="p">):</span>
 
-    <span class="n">n_users</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span> <span class="c1"># 유저 수
+    <span class="n">n_users</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span> <span class="c1"># 유저 수
 </span>    <span class="n">cond_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 각 사용자의 이모티콘을 구매하는 할인 조건 리스트
 </span>    <span class="n">limit_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 각 사용자의 구매 비용 한도 (넘을시 이모티콘플러스 서비스 가입)
 </span>    <span class="n">n_sub</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 이모티콘 플러스 가입자 수 
-</span>    <span class="n">n_emo</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span> <span class="c1"># 이모티콘 수 
-</span>    <span class="n">dis_emo_list_c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="p">.</span><span class="n">product</span><span class="p">(([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">]),</span> <span class="n">repeat</span> <span class="o">=</span> <span class="n">n_emo</span><span class="p">))</span> <span class="c1"># 각 이모티콘 별 할인율
+</span>    <span class="n">n_emo</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span> <span class="c1"># 이모티콘 수 
+</span>    <span class="n">dis_emo_list_c</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">itertools</span><span class="p">.</span><span class="nf">product</span><span class="p">(([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">]),</span> <span class="n">repeat</span> <span class="o">=</span> <span class="n">n_emo</span><span class="p">))</span> <span class="c1"># 각 이모티콘 별 할인율
 </span>    <span class="n">price_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_users</span> <span class="c1"># 각 사용자의 구매 총합
 </span>
     <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
-        <span class="n">cond_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">limit_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">cond_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">limit_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
     <span class="n">take</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">dis_emo_list</span> <span class="ow">in</span> <span class="n">dis_emo_list_c</span><span class="p">:</span>
         <span class="n">price_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_users</span> <span class="c1"># 각 사용자의 구매 총합
 </span>        <span class="n">n_sub_tmp</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">price</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">emoticons</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_users</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">price</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">emoticons</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_users</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">cond_list</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">dis_emo_list</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
                     <span class="n">price_list</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">+=</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span> <span class="n">dis_emo_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_users</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_users</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">limit_list</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">price_list</span><span class="p">[</span><span class="n">user</span><span class="p">]:</span>
                 <span class="n">n_sub_tmp</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="n">price_list</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     
         <span class="k">if</span> <span class="n">n_sub</span> <span class="o">&lt;</span> <span class="n">n_sub_tmp</span><span class="p">:</span>
             <span class="n">n_sub</span> <span class="o">=</span> <span class="n">n_sub_tmp</span>
-            <span class="n">take</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">price_list</span><span class="p">)</span>
+            <span class="n">take</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">price_list</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">n_sub</span> <span class="o">==</span> <span class="n">n_sub_tmp</span><span class="p">:</span>
-            <span class="n">take</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">take</span><span class="p">,</span><span class="nb">sum</span><span class="p">(</span><span class="n">price_list</span><span class="p">))</span>
+            <span class="n">take</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">take</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">price_list</span><span class="p">))</span>
         
-    <span class="k">return</span> <span class="p">[</span><span class="n">n_sub</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">take</span><span class="p">)]</span>
-<span class="n">solution</span><span class="p">([[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]]</span>	<span class="p">,[</span><span class="mi">7000</span><span class="p">,</span> <span class="mi">9000</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">n_sub</span><span class="p">,</span><span class="nf">int</span><span class="p">(</span><span class="n">take</span><span class="p">)]</span>
+<span class="nf">solution</span><span class="p">([[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]]</span>	<span class="p">,[</span><span class="mi">7000</span><span class="p">,</span> <span class="mi">9000</span><span class="p">])</span>
 </code></pre></div></div>
 <p>최종코드는 이렇게 된다.</p>
 
@@ -421,19 +419,19 @@
 
 <p>내 코드와 비교하며 리뷰하려고 한다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 
 <span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">emoticons</span><span class="p">):</span>
-    <span class="n">E</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">percents</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
-    <span class="n">prod</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="n">percents</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">E</span><span class="p">)</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="nf">product</span><span class="p">(</span><span class="n">percents</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">E</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">prod</span><span class="p">:</span>
         <span class="n">prod_members</span><span class="p">,</span> <span class="n">prod_price</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">buy_percent</span><span class="p">,</span> <span class="n">max_price</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span> 
             <span class="n">user_price</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">for</span> <span class="n">item_price</span><span class="p">,</span> <span class="n">item_percent</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">emoticons</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">item_price</span><span class="p">,</span> <span class="n">item_percent</span> <span class="ow">in</span> <span class="nf">zip</span><span class="p">(</span><span class="n">emoticons</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">item_percent</span> <span class="o">&gt;=</span> <span class="n">buy_percent</span><span class="p">:</span>
                     <span class="n">user_price</span> <span class="o">+=</span> <span class="n">item_price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="n">item_percent</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.01</span>
 
@@ -442,7 +440,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">prod_price</span> <span class="o">+=</span> <span class="n">user_price</span>
 
-        <span class="n">result</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="p">[</span><span class="n">prod_members</span><span class="p">,</span> <span class="n">prod_price</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="p">[</span><span class="n">prod_members</span><span class="p">,</span> <span class="n">prod_price</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></div>
@@ -505,11 +503,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BProgrammers%5D+%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98+%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC%20http%3A%2F%2Flocalhost%3A4000%2Fprogrammers%2Fprogrammers-%25EC%259D%25B4%25EB%25AA%25A8%25ED%258B%25B0%25EC%25BD%2598%25ED%2595%25A0%25EC%259D%25B8%25ED%2596%2589%25EC%2582%25AC%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BProgrammers%5D+%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98+%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC%20http%3A%2F%2Flocalhost%3A4000%2Fprogrammers%2Fprogrammers-%25EC%259D%25B4%25EB%25AA%25A8%25ED%258B%25B0%25EC%25BD%2598%25ED%2595%25A0%25EC%259D%25B8%25ED%2596%2589%25EC%2582%25AC-copy%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprogrammers%2Fprogrammers-%25EC%259D%25B4%25EB%25AA%25A8%25ED%258B%25B0%25EC%25BD%2598%25ED%2595%25A0%25EC%259D%25B8%25ED%2596%2589%25EC%2582%25AC%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprogrammers%2Fprogrammers-%25EC%259D%25B4%25EB%25AA%25A8%25ED%258B%25B0%25EC%25BD%2598%25ED%2595%25A0%25EC%259D%25B8%25ED%2596%2589%25EC%2582%25AC-copy%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fprogrammers%2Fprogrammers-%25EC%259D%25B4%25EB%25AA%25A8%25ED%258B%25B0%25EC%25BD%2598%25ED%2595%25A0%25EC%259D%25B8%25ED%2596%2589%25EC%2582%25AC%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fprogrammers%2Fprogrammers-%25EC%259D%25B4%25EB%25AA%25A8%25ED%258B%25B0%25EC%25BD%2598%25ED%2595%25A0%25EC%259D%25B8%25ED%2596%2589%25EC%2582%25AC-copy%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
