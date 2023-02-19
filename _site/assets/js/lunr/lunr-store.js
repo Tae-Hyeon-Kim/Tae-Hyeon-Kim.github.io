@@ -35,16 +35,16 @@ var store = [{
         "url": "/dacon/prediction-of-trevel-product/",
         "teaser": null
       },{
-        "title": "[Programmers] 이모티콘 할인행사",
-        "excerpt":"1. 문제 문제링크 : https://school.programmers.co.kr/learn/courses/30/lessons/150368 문제 설명이 매우 복잡하게 느껴졌지만 사용자들의 할인율 조건(?)과 이모티콘 플러스를 가입하기 전까지의 한도금액 정보와 이모티콘의 금액 정보를 통해 각 이모티콘의 할인율을 조정하여 이모티콘 플러스의 가입자를 최대한 늘리는 것 이모티콘 판매액을 최대한 늘리는 것 이 두 조건을 만족하는 [이모티콘 플러스의 가입자 수, 이모티콘 판매액] 를 return...","categories": ["Programmers"],
-        "tags": ["python","algorithm"],
-        "url": "/programmers/test2/",
-        "teaser": null
-      },{
         "title": "[Programmers] 네트워크",
         "excerpt":"프로그래머스 코팅테스트 연습문제를 푸는 과정에서 굉장히 깔끔하게 풀린 문제가 있어서 풀이과정을 공유하고자 작성하게 되었다! 1. 문제 문제링크 : https://school.programmers.co.kr/learn/courses/30/lessons/43162 먼저 입력은 컴퓨터의 개수 n 과 컴퓨터 간 연결 관계에 대한 리스트 computers 가 주어지고 두 정보를 이용하여 네트워크의 개수 즉, 컴퓨터가 몇 묶음으로 연결되어있는지를 출력해야 한다. 2. 접근 방법 이...","categories": ["Programmers"],
         "tags": ["python","algorithm","dfs/bfs"],
         "url": "/programmers/programmers-network-solution/",
+        "teaser": null
+      },{
+        "title": "[Programmers] 이모티콘 할인행사",
+        "excerpt":"1. 문제 문제링크 : https://school.programmers.co.kr/learn/courses/30/lessons/150368 문제 설명이 매우 복잡하게 느껴졌지만 사용자들의 할인율 조건(?)과 이모티콘 플러스를 가입하기 전까지의 한도금액 정보와 이모티콘의 금액 정보를 통해 각 이모티콘의 할인율을 조정하여 이모티콘 플러스의 가입자를 최대한 늘리는 것 이모티콘 판매액을 최대한 늘리는 것 이 두 조건을 만족하는 [이모티콘 플러스의 가입자 수, 이모티콘 판매액] 를 return...","categories": ["Programmers"],
+        "tags": ["python","algorithm"],
+        "url": "/programmers/test2/",
         "teaser": null
       },{
         "title": "[Programmers] 네트워크",
