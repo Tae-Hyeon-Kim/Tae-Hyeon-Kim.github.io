@@ -28,7 +28,7 @@ author_profile: true
 우선 `사용자 수`, `각 사용자의 할인 조건`, `각 사용자의 구매 한도`, 등 변수로 지정할 것이 많기에 
 
 나름대로의 네이밍으로 변수를 지정해주었다
-```
+```python
 n_users = len(users)            # 유저 수
 cond_list = []                  
 limit_list = []                 
@@ -56,7 +56,7 @@ for user in users:
 
 # 3. 문제 해결
 
-```
+```python
 def solution(users, emoticons):
 
     n_users = len(users) # 유저 수
@@ -122,7 +122,7 @@ itertools 라이브러리를 이용하여 이모티콘의 할인율에 대한 �
 
 내 코드와 비교하며 리뷰하려고 한다.
 
-```
+```python
 from itertools import product
 
 def solution(users, emoticons):
