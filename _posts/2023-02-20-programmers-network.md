@@ -6,7 +6,7 @@ tag: [python, algorithm, dfs/bfs]
 toc: true
 toc_sticky: true
 author_profile: true
-excerpt: "프로그래머스 네트워크 문제풀이"
+#excerpt: "프로그래머스 네트워크 문제풀이"
 
 ---
 
