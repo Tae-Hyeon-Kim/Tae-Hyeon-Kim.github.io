@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-03T17:39:01+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Just Do it</title><subtitle>1일 1포스팅을 목표로</subtitle><author><name>Tae Hyeon Kim</name></author><entry><title type="html">[Dacon] 여행상품 신청예측</title><link href="http://localhost:4000/dacon/%EB%8D%B0%EC%9D%B4%EC%BD%98-%EC%97%AC%ED%96%89%EC%83%81%ED%92%88%EC%8B%A0%EC%B2%AD%EC%98%88%EC%B8%A1/" rel="alternate" type="text/html" title="[Dacon] 여행상품 신청예측" /><published>2023-02-02T00:00:00+09:00</published><updated>2023-02-02T00:00:00+09:00</updated><id>http://localhost:4000/dacon/%EB%8D%B0%EC%9D%B4%EC%BD%98%20%EC%97%AC%ED%96%89%EC%83%81%ED%92%88%EC%8B%A0%EC%B2%AD%EC%98%88%EC%B8%A1</id><content type="html" xml:base="http://localhost:4000/dacon/%EB%8D%B0%EC%9D%B4%EC%BD%98-%EC%97%AC%ED%96%89%EC%83%81%ED%92%88%EC%8B%A0%EC%B2%AD%EC%98%88%EC%B8%A1/"><![CDATA[<p>데이콘 Basic 여행상품 신청예측</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-20T01:16:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Just Do it</title><subtitle>1일 1포스팅을 목표로</subtitle><author><name>Tae Hyeon Kim</name></author><entry><title type="html">[Programmers] 네트워크</title><link href="http://localhost:4000/programmers/programmers-network/" rel="alternate" type="text/html" title="[Programmers] 네트워크" /><published>2023-02-20T00:00:00+09:00</published><updated>2023-02-20T00:00:00+09:00</updated><id>http://localhost:4000/programmers/programmers-network</id><content type="html" xml:base="http://localhost:4000/programmers/programmers-network/"><![CDATA[<p>프로그래머스 코팅테스트 연습문제를 푸는 과정에서</p>
+
+<p>굉장히 깔끔하게 풀린 문제가 있어서 풀이과정을 공유하고자 작성하게 되었다!</p>
+
+<h1 id="1-문제">1. 문제</h1>
+
+<p>문제링크 : <a href="https://school.programmers.co.kr/learn/courses/30/lessons/43162" target="_blank">https://school.programmers.co.kr/learn/courses/30/lessons/43162</a></p>
+
+<p>먼저 입력은 컴퓨터의 개수 <code class="language-plaintext highlighter-rouge">n</code> 과 컴퓨터 간 연결 관계에 대한 리스트 <code class="language-plaintext highlighter-rouge">computers</code> 가 주어지고</p>
+
+<p>두 정보를 이용하여 네트워크의 개수 즉, 컴퓨터가 몇 묶음으로 연결되어있는지를 출력해야 한다.</p>
+
+<h1 id="2-접근-방법">2. 접근 방법</h1>
+<p>이 문제를 해결하기 위해서는 <code class="language-plaintext highlighter-rouge">computers[i]</code> 를 통해 i 번째 컴퓨터와 연결되어있는 컴퓨터의 정보를 얻고</p>
+
+<p>만약 j 번째 컴퓨터와 연결되어있다면 또한 <code class="language-plaintext highlighter-rouge">comuputers[j]</code> 를 통해 연결된 컴퓨터 정보를 얻어 i 번째 컴퓨터가 j 번째 컴퓨터를 거쳐 어디까지 네트워크를 형성하고있는지 파악해야하는 <strong>dfs</strong> 유형의 문제이다.</p>
+
+<p>우선 dfs를 수행할 함수를 정의해야 하는데 그 파라메터를 <code class="language-plaintext highlighter-rouge">i 번째 컴퓨터</code> 와 <code class="language-plaintext highlighter-rouge">i 번째 컴퓨터와 연결된 컴퓨터 정보</code> 로 설정해야 i 번째 컴퓨터와 어떤 컴퓨터가 연결되어있다면 그 컴퓨터와 그 컴퓨터에 대한 정보를 재귀함수로 넘겨서 진행할 수 있다.</p>
+
+<h1 id="3-문제-풀이">3. 문제 풀이</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">computers</span><span class="p">):</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">coms</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">coms</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">visited</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">visited</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">connect</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">computers</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>             
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">connect</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">computers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">answer</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">connect(i,coms)</code> 를 정의했고 여기서 <code class="language-plaintext highlighter-rouge">i</code> 는 몇 번째 컴퓨터인지 <code class="language-plaintext highlighter-rouge">coms</code> 는 그 컴퓨터에 대한 연결 정보. 즉<code class="language-plaintext highlighter-rouge">computers[i]</code> 를 의미한다.</p>
+
+<p>여기서 중요한 것은 <code class="language-plaintext highlighter-rouge">visited</code> 라고 정의한 리스트이다.</p>
+
+<p>이 리스트는 이 컴퓨터가 네트워크에 연결되었는지를 확인하는 리스트인데,</p>
+
+<p><code class="language-plaintext highlighter-rouge">visited[1] == 1</code> 이라면 1 번째 컴퓨터는 어떤 네트워크에 연결되었는지는 모르지만 어디든 일단 속해있다는 뜻이다.</p>
+
+<p>이 리스트를 통해 <strong>재귀함수가 무한으로 반복되는 것을 방지</strong> 하고 <strong>네트워크의 개수를 계산</strong> 할 수 있다.</p>
+
+<p>네트워크의 개수가 계산되는 과정은</p>
+
+<p>for문을 통해 처음 <code class="language-plaintext highlighter-rouge">connect(0,computers[0])</code> 이 실행되면 0 번째 컴퓨터와 연결된 컴퓨터들은 if 문의 조건들을 모두 만족하기 때문에 <code class="language-plaintext highlighter-rouge">visited</code>의 값이 모두 <code class="language-plaintext highlighter-rouge">1</code> 이 된다.</p>
+
+<p>그렇게되면 for문이 돌아도 if 문에 막혀서 <code class="language-plaintext highlighter-rouge">connect()</code> 를 호출하지 못하는 <code class="language-plaintext highlighter-rouge">i</code> 값이 생기고</p>
+
+<p><strong>0 번째 컴퓨터와 연결되지 않은 컴퓨터의 i 값</strong> 만  <code class="language-plaintext highlighter-rouge">connect()</code> 함수를 호출하게 된다.</p>]]></content><author><name>Tae Hyeon Kim</name></author><category term="Programmers" /><category term="python" /><category term="algorithm" /><category term="dfs/bfs" /><summary type="html"><![CDATA[프로그래머스 네트워크 문제풀이]]></summary></entry><entry><title type="html">[Dacon] 여행상품 신청예측</title><link href="http://localhost:4000/dacon/prediction-of-trevel-product/" rel="alternate" type="text/html" title="[Dacon] 여행상품 신청예측" /><published>2023-02-02T00:00:00+09:00</published><updated>2023-02-02T00:00:00+09:00</updated><id>http://localhost:4000/dacon/prediction-of-trevel-product</id><content type="html" xml:base="http://localhost:4000/dacon/prediction-of-trevel-product/"><![CDATA[<p>데이콘 Basic 여행상품 신청예측</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="n">drive</span><span class="p">.</span><span class="n">mount</span><span class="p">(</span><span class="s">'/content/drive'</span><span class="p">)</span>
@@ -8051,18 +8104,18 @@ Name: pred3, dtype: int64
 <p>우선 <code class="language-plaintext highlighter-rouge">사용자 수</code>, <code class="language-plaintext highlighter-rouge">각 사용자의 할인 조건</code>, <code class="language-plaintext highlighter-rouge">각 사용자의 구매 한도</code>, 등 변수로 지정할 것이 많기에</p>
 
 <p>나름대로의 네이밍으로 변수를 지정해주었다</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n_users = len(users)            # 유저 수
-cond_list = []                  
-limit_list = []                 
-n_sub = 0                       # 이모티콘 플러스 가입자 수 
-n_emo = len(emoticons)          # 이모티콘 수 
-dis_emo_list = [40] * n_emo     # 각 이모티콘 별 할인율
-price_list = [0] * n_users      # 각 사용자의 구매 총합
-
-for user in users:
-    cond_list.append(user[0])   # 각 사용자의 이모티콘을 구매하는 할인 조건 리스트
-    limit_list.append(user[1])  # 각 사용자의 구매 비용 한도 (넘을시 이모티콘플러스 서비스 가입)
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_users</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>            <span class="c1"># 유저 수
+</span><span class="n">cond_list</span> <span class="o">=</span> <span class="p">[]</span>                  
+<span class="n">limit_list</span> <span class="o">=</span> <span class="p">[]</span>                 
+<span class="n">n_sub</span> <span class="o">=</span> <span class="mi">0</span>                       <span class="c1"># 이모티콘 플러스 가입자 수 
+</span><span class="n">n_emo</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span>          <span class="c1"># 이모티콘 수 
+</span><span class="n">dis_emo_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_emo</span>     <span class="c1"># 각 이모티콘 별 할인율
+</span><span class="n">price_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_users</span>      <span class="c1"># 각 사용자의 구매 총합
+</span>
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+    <span class="n">cond_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># 각 사용자의 이모티콘을 구매하는 할인 조건 리스트
+</span>    <span class="n">limit_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 각 사용자의 구매 비용 한도 (넘을시 이모티콘플러스 서비스 가입)
+</span></code></pre></div></div>
 
 <p>우선 조건이 이모티콘 플러스의 가입자를 최대한 늘리는 것이기 때문에 우선 사용자들이</p>
 
@@ -8078,42 +8131,42 @@ for user in users:
 
 <h1 id="3-문제-해결">3. 문제 해결</h1>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def solution(users, emoticons):
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">emoticons</span><span class="p">):</span>
 
-    n_users = len(users) # 유저 수
-    cond_list = [] # 각 사용자의 이모티콘을 구매하는 할인 조건 리스트
-    limit_list = [] # 각 사용자의 구매 비용 한도 (넘을시 이모티콘플러스 서비스 가입)
-    n_sub = 0 # 이모티콘 플러스 가입자 수 
-    n_emo = len(emoticons) # 이모티콘 수 
-    dis_emo_list_c = list(itertools.product(([10,20,30,40]), repeat = n_emo)) # 각 이모티콘 별 할인율
-    price_list = [0] * n_users # 각 사용자의 구매 총합
+    <span class="n">n_users</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span> <span class="c1"># 유저 수
+</span>    <span class="n">cond_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 각 사용자의 이모티콘을 구매하는 할인 조건 리스트
+</span>    <span class="n">limit_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 각 사용자의 구매 비용 한도 (넘을시 이모티콘플러스 서비스 가입)
+</span>    <span class="n">n_sub</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 이모티콘 플러스 가입자 수 
+</span>    <span class="n">n_emo</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span> <span class="c1"># 이모티콘 수 
+</span>    <span class="n">dis_emo_list_c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="p">.</span><span class="n">product</span><span class="p">(([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">]),</span> <span class="n">repeat</span> <span class="o">=</span> <span class="n">n_emo</span><span class="p">))</span> <span class="c1"># 각 이모티콘 별 할인율
+</span>    <span class="n">price_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_users</span> <span class="c1"># 각 사용자의 구매 총합
+</span>
+    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+        <span class="n">cond_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">limit_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-    for user in users:
-        cond_list.append(user[0])
-        limit_list.append(user[1])
+    <span class="n">take</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">dis_emo_list</span> <span class="ow">in</span> <span class="n">dis_emo_list_c</span><span class="p">:</span>
+        <span class="n">price_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_users</span> <span class="c1"># 각 사용자의 구매 총합
+</span>        <span class="n">n_sub_tmp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">price</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">emoticons</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_users</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">cond_list</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">dis_emo_list</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                    <span class="n">price_list</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">+=</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span> <span class="n">dis_emo_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
 
-    take = 0
-    for dis_emo_list in dis_emo_list_c:
-        price_list = [0] * n_users # 각 사용자의 구매 총합
-        n_sub_tmp = 0
-        for i,price in enumerate(emoticons):
-            for user in range(n_users):
-                if cond_list[user] &lt;= dis_emo_list[i]:
-                    price_list[user] += price * (1- dis_emo_list[i]/100)
-
-        for user in range(n_users):
-            if limit_list[user] &lt;= price_list[user]:
-                n_sub_tmp += 1
-                price_list[user] = 0
+        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_users</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">limit_list</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">price_list</span><span class="p">[</span><span class="n">user</span><span class="p">]:</span>
+                <span class="n">n_sub_tmp</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">price_list</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     
-        if n_sub &lt; n_sub_tmp:
-            n_sub = n_sub_tmp
-            take = sum(price_list)
-        elif n_sub == n_sub_tmp:
-            take = max(take,sum(price_list))
+        <span class="k">if</span> <span class="n">n_sub</span> <span class="o">&lt;</span> <span class="n">n_sub_tmp</span><span class="p">:</span>
+            <span class="n">n_sub</span> <span class="o">=</span> <span class="n">n_sub_tmp</span>
+            <span class="n">take</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">price_list</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">n_sub</span> <span class="o">==</span> <span class="n">n_sub_tmp</span><span class="p">:</span>
+            <span class="n">take</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">take</span><span class="p">,</span><span class="nb">sum</span><span class="p">(</span><span class="n">price_list</span><span class="p">))</span>
         
-    return [n_sub,int(take)]
-solution([[40, 10000], [25, 10000]]	,[7000, 9000])
+    <span class="k">return</span> <span class="p">[</span><span class="n">n_sub</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">take</span><span class="p">)]</span>
+<span class="n">solution</span><span class="p">([[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]]</span>	<span class="p">,[</span><span class="mi">7000</span><span class="p">,</span> <span class="mi">9000</span><span class="p">])</span>
 </code></pre></div></div>
 <p>최종코드는 이렇게 된다.</p>
 
@@ -8141,30 +8194,30 @@ solution([[40, 10000], [25, 10000]]	,[7000, 9000])
 
 <p>내 코드와 비교하며 리뷰하려고 한다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from itertools import product
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 
-def solution(users, emoticons):
-    E = len(emoticons)
-    result = [0, 0]
-    percents = (10, 20, 30, 40)
-    prod = product(percents, repeat=E)
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">emoticons</span><span class="p">):</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">percents</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="n">percents</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">E</span><span class="p">)</span>
 
-    for p in prod:
-        prod_members, prod_price = 0, 0
-        for buy_percent, max_price in users: 
-            user_price = 0
-            for item_price, item_percent in zip(emoticons, p):
-                if item_percent &gt;= buy_percent:
-                    user_price += item_price * (100-item_percent) * 0.01
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">prod</span><span class="p">:</span>
+        <span class="n">prod_members</span><span class="p">,</span> <span class="n">prod_price</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">buy_percent</span><span class="p">,</span> <span class="n">max_price</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span> 
+            <span class="n">user_price</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">item_price</span><span class="p">,</span> <span class="n">item_percent</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">emoticons</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">item_percent</span> <span class="o">&gt;=</span> <span class="n">buy_percent</span><span class="p">:</span>
+                    <span class="n">user_price</span> <span class="o">+=</span> <span class="n">item_price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="n">item_percent</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.01</span>
 
-            if user_price &gt;= max_price:
-                prod_members += 1
-            else:
-                prod_price += user_price
+            <span class="k">if</span> <span class="n">user_price</span> <span class="o">&gt;=</span> <span class="n">max_price</span><span class="p">:</span>
+                <span class="n">prod_members</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">prod_price</span> <span class="o">+=</span> <span class="n">user_price</span>
 
-        result = max(result, [prod_members, prod_price])
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="p">[</span><span class="n">prod_members</span><span class="p">,</span> <span class="n">prod_price</span><span class="p">])</span>
 
-    return result
+    <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></div>
 
 <p>필자는 변수 초기화와 계산하는 코드를 분리한 반면 이 분은 변수 초기화를 따로 하지 않고 바로 본 코드에 들어가신 것 같다.</p>
