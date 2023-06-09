@@ -210,8 +210,8 @@ kramdown:
   enable_coderay: false
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    python block:
-      line_numbers: False
+    block:
+      line_numbers: True
 
 
 # Sass/SCSS

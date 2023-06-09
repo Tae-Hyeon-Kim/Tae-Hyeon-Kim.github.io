@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-09T16:08:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Just Do it</title><subtitle>1일 1포스팅을 목표로</subtitle><author><name>Tae Hyeon Kim</name></author><entry><title type="html">[keras 뿌시기] 자연어처리를 이용한 이진분류</title><link href="http://localhost:4000/keras/keras_02/" rel="alternate" type="text/html" title="[keras 뿌시기] 자연어처리를 이용한 이진분류" /><published>2023-06-06T00:00:00+09:00</published><updated>2023-06-06T00:00:00+09:00</updated><id>http://localhost:4000/keras/keras_02</id><content type="html" xml:base="http://localhost:4000/keras/keras_02/"><![CDATA[<p>IMDB 데이터셋을 활용한 이진분류</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-09T16:42:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Just Do it</title><subtitle>1일 1포스팅을 목표로</subtitle><author><name>Tae Hyeon Kim</name></author><entry><title type="html">[keras 뿌시기] 자연어처리를 이용한 이진분류</title><link href="http://localhost:4000/keras/keras_02/" rel="alternate" type="text/html" title="[keras 뿌시기] 자연어처리를 이용한 이진분류" /><published>2023-06-06T00:00:00+09:00</published><updated>2023-06-06T00:00:00+09:00</updated><id>http://localhost:4000/keras/keras_02</id><content type="html" xml:base="http://localhost:4000/keras/keras_02/"><![CDATA[<p>IMDB 데이터셋을 활용한 이진분류</p>
 
 <blockquote>
   <p>이미지 자료나 코드 모두 한경훈 교수님의 자료에서 참조하였으며, 한경훈 교수님의 블로그 링크를 첨부합니다. <br />
-블로그 링크 : <a href="https://sites.google.com/site/kyunghoonhan/keras?authuser=0">https://sites.google.com/site/kyunghoonhan/keras?authuser=0</a>
-—</p>
+블로그 링크 : <strong><a href="https://sites.google.com/site/kyunghoonhan/keras?authuser=0">https://sites.google.com/site/kyunghoonhan/keras?authuser=0</a></strong></p>
 </blockquote>
+
+<hr />
 
 <h1 id="imdb-데이터셋">IMDB 데이터셋</h1>
 <p>IMDB 데이터셋은 영화 리뷰에 대한 데이터로 리뷰가 긍정적인지 부정적인지에 대한 예측을 할 수 있습니다.</p>
@@ -510,9 +511,10 @@ a
 <p>다음 포스팅에서는 로이터 뉴스 데이터셋을 활용하여 다중분류를 해보도록 하겠습니다.</p>]]></content><author><name>Tae Hyeon Kim</name></author><category term="Keras" /><category term="python" /><category term="keras" /><category term="ml" /><summary type="html"><![CDATA[IMDB 데이터셋을 활용한 이진분류]]></summary></entry><entry><title type="html">[keras 뿌시기] Sequential API</title><link href="http://localhost:4000/keras/keras_01/" rel="alternate" type="text/html" title="[keras 뿌시기] Sequential API" /><published>2023-06-02T00:00:00+09:00</published><updated>2023-06-02T00:00:00+09:00</updated><id>http://localhost:4000/keras/keras_01</id><content type="html" xml:base="http://localhost:4000/keras/keras_01/"><![CDATA[<p>Sequential API</p>
 
 <p>저는 지금 대학교에서 딥러닝 응용1 이라는 과목을 배우고 있는데, 강의에서 배운 내용을 복습도 하고 저만의 방식으로 배운 것을 기록을 하기 위해 이렇게 포스팅을 하게 되었습니다.</p>
+
 <blockquote>
   <p>이미지 자료나 코드 모두 한경훈 교수님의 자료에서 참조하였으며, 한경훈 교수님의 블로그 링크를 첨부합니다. <br />
-블로그 링크 : <a href="https://sites.google.com/site/kyunghoonhan/keras?authuser=0">https://sites.google.com/site/kyunghoonhan/keras?authuser=0</a></p>
+블로그 링크 : <strong><a href="https://sites.google.com/site/kyunghoonhan/keras?authuser=0">https://sites.google.com/site/kyunghoonhan/keras?authuser=0</a></strong></p>
 </blockquote>
 
 <h1 id="mnist-data">Mnist Data</h1>

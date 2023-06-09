@@ -48,7 +48,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[keras 뿌시기] 자연어처리를 이용한 이진분류",
-        "excerpt":"IMDB 데이터셋을 활용한 이진분류 이미지 자료나 코드 모두 한경훈 교수님의 자료에서 참조하였으며, 한경훈 교수님의 블로그 링크를 첨부합니다. 블로그 링크 : https://sites.google.com/site/kyunghoonhan/keras?authuser=0 — IMDB 데이터셋 IMDB 데이터셋은 영화 리뷰에 대한 데이터로 리뷰가 긍정적인지 부정적인지에 대한 예측을 할 수 있습니다. 케라스의 tf.keras.datasets.imdb로부터 IMDB 데이터셋을 불러올 수 있습니다. 1 2 3 4 5...","categories": ["Keras"],
+        "excerpt":"IMDB 데이터셋을 활용한 이진분류 이미지 자료나 코드 모두 한경훈 교수님의 자료에서 참조하였으며, 한경훈 교수님의 블로그 링크를 첨부합니다. 블로그 링크 : https://sites.google.com/site/kyunghoonhan/keras?authuser=0 IMDB 데이터셋 IMDB 데이터셋은 영화 리뷰에 대한 데이터로 리뷰가 긍정적인지 부정적인지에 대한 예측을 할 수 있습니다. 케라스의 tf.keras.datasets.imdb로부터 IMDB 데이터셋을 불러올 수 있습니다. 1 2 3 4 5 6...","categories": ["Keras"],
         "tags": ["python","keras","ml"],
         "url": "/keras/keras_02/",
         "teaser": null
