@@ -329,7 +329,21 @@
 
 <h1 id="3-문제-풀이">3. 문제 풀이</h1>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">computers</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">computers</span><span class="p">):</span>
     <span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">coms</span><span class="p">):</span>
@@ -343,7 +357,7 @@
             <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="k">return</span> <span class="n">answer</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p><code class="language-plaintext highlighter-rouge">connect(i,coms)</code> 를 정의했고 여기서 <code class="language-plaintext highlighter-rouge">i</code> 는 몇 번째 컴퓨터인지 <code class="language-plaintext highlighter-rouge">coms</code> 는 그 컴퓨터에 대한 연결 정보. 즉<code class="language-plaintext highlighter-rouge">computers[i]</code> 를 의미한다.</p>
 
@@ -431,7 +445,8 @@
 ">이전</a>
     
     
-      <a href="#" class="pagination--pager disabled">다음</a>
+      <a href="/keras/keras_01/" class="pagination--pager" title="[keras 뿌시기] Sequential API
+">다음</a>
     
   </nav>
 
@@ -445,6 +460,100 @@
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/keras/keras_02/" rel="permalink">[keras 뿌시기] 자연어처리를 이용한 이진분류
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-06-06T00:00:00+09:00">June 6, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">IMDB 데이터셋을 활용한 이진분류
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/keras/keras_01/" rel="permalink">[keras 뿌시기] Sequential API
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-06-02T00:00:00+09:00">June 2, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          8 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Sequential API
+</p>
+  </article>
+</div>
+
         
           
 
@@ -480,7 +589,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          36 분 소요
+          43 분 소요
         
       </span>
     
@@ -535,100 +644,6 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">프로그래머스 이모티콘 할인행사
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/dacon/dacon-gene/" rel="permalink">[Dacon] 유전체 정보 분류 경진대회
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-01-11T00:00:00+09:00">January 11, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          7 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">데이콘 유전체 정보 품종 분류 AI 경진대회
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/dacon/dacon-wine-classifier/" rel="permalink">[Dacon] 와인 품질 분류 경진대회
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2022-12-06T00:00:00+09:00">December 6, 2022</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          20 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">데이콘 실무역량 강화교육 간에 실시한 프로젝트인 와인분류 프로젝트입니다.
 </p>
   </article>
 </div>

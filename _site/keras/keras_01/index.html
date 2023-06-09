@@ -1,0 +1,1388 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[keras 뿌시기] Sequential API - Just Do it</title>
+<meta name="description" content="Sequential API">
+
+
+  <meta name="author" content="Tae Hyeon Kim">
+  
+  <meta property="article:author" content="Tae Hyeon Kim">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Just Do it">
+<meta property="og:title" content="[keras 뿌시기] Sequential API">
+<meta property="og:url" content="http://localhost:4000/keras/keras_01/">
+
+
+  <meta property="og:description" content="Sequential API">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-06-02T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/keras/keras_01/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Tae Hyeon Kim",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Just Do it Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Just Do it
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">Introduce</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Tae Hyeon Kim</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>I am an <strong>amazing</strong> person.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Somewhere</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:ttth000221@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/Tae-Hyeon-Kim" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[keras 뿌시기] Sequential API">
+    <meta itemprop="description" content="Sequential API">
+    <meta itemprop="datePublished" content="2023-06-02T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/keras/keras_01/" class="u-url" itemprop="url">[keras 뿌시기] Sequential API
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-06-02T00:00:00+09:00">June 2, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          9 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#mnist-data">Mnist Data</a><ul><li><a href="#학습">학습</a></li><li><a href="#평가">평가</a></li></ul></li><li><a href="#cifar10-data">CIFAR10 Data</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>Sequential API</p>
+
+<p>저는 지금 대학교에서 딥러닝 응용1 이라는 과목을 배우고 있는데, 강의에서 배운 내용을 복습도 하고 저만의 방식으로 배운 것을 기록을 하기 위해 이렇게 포스팅을 하게 되었습니다.</p>
+<blockquote>
+  <p>이미지 자료나 코드 모두 한경훈 교수님의 자료에서 참조하였으며, 한경훈 교수님의 블로그 링크를 첨부합니다. <br />
+블로그 링크 : <a href="https://sites.google.com/site/kyunghoonhan/keras?authuser=0">https://sites.google.com/site/kyunghoonhan/keras?authuser=0</a></p>
+</blockquote>
+
+<h1 id="mnist-data">Mnist Data</h1>
+<p><a href="https://www.tensorflow.org/guide/keras?hl=ko"><strong>keras</strong></a>는 딥 러닝 모델을 빌드하고 학습시키기 위한 TensorFlow의 상위 수준 API입니다.<br />
+keras는 3가지 종류의 API를 제공하는데 그 중에서 가장 유연성은 떨어지지만 그만큼 사용하기 쉬운 API가 Sequential API입니다.  (Sequential API 이외에 Functional API, Subcalssing API 가 있습니다. 후에 포스팅 예정입니다.)</p>
+
+<p>다음은 mnist 데이터를 예측하는 신경망의 예시입니다.<br />
+keras.layers 메소드로 쉽게 구현할 수 있습니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=1vBEb27TDxTo9p-lMuZR8rIO377JQFSKS" alt="img" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+
+<span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="nf">load_data</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="n">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="n">keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">keras</span><span class="p">.</span><span class="n">__version__</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>'2.9.0'
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">keras</span> <span class="kn">import</span> <span class="n">Sequential</span>
+
+<span class="n">relu</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="nc">ReLU</span><span class="p">()</span>
+<span class="n">softmax</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="nc">Softmax</span><span class="p">()</span>
+
+<span class="n">dense1</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,))</span>
+<span class="n">dense2</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="nc">Sequential</span><span class="p">([</span><span class="n">dense1</span><span class="p">,</span> <span class="n">relu</span><span class="p">,</span> <span class="n">dense2</span><span class="p">,</span> <span class="n">softmax</span><span class="p">])</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>Metal device set to: Apple M1
+
+
+2023-06-06 19:20:36.556629: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2023-06-06 19:20:36.556710: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -&gt; physical PluggableDevice (device: 0, name: METAL, pci bus id: &lt;undefined&gt;)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>만든 모델을 확인해봅시다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">plot_model</span>
+
+<span class="nf">plot_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/122070432/243709136-42749d7c-987c-47d4-8561-53bd229b4a12.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">model</span><span class="p">.</span><span class="nf">summary</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre>Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense (Dense)               (None, 50)                39250     
+                                                                 
+ re_lu (ReLU)                (None, 50)                0         
+                                                                 
+ dense_1 (Dense)             (None, 10)                510       
+                                                                 
+ softmax (Softmax)           (None, 10)                0         
+                                                                 
+=================================================================
+Total params: 39,760
+Trainable params: 39,760
+Non-trainable params: 0
+_________________________________________________________________
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위의 모델은 <code class="language-plaintext highlighter-rouge">relu</code> 층과 <code class="language-plaintext highlighter-rouge">softmax</code> 층을 분리하여 모델을 만들었지만<br />
+보통의 경우에는 다음과 같이 <code class="language-plaintext highlighter-rouge">Dense</code> 클래스의 인수로 설정해서 구성합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">model</span> <span class="o">=</span> <span class="nc">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">"relu"</span><span class="p">),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">"softmax"</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nf">plot_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">show_layer_activations</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/122070432/243709147-f743fc17-453b-4338-86fc-3804baad7d9d.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">model</span><span class="p">.</span><span class="nf">summary</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre>Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_2 (Dense)             (None, 50)                39250     
+                                                                 
+ dense_3 (Dense)             (None, 10)                510       
+                                                                 
+=================================================================
+Total params: 39,760
+Trainable params: 39,760
+Non-trainable params: 0
+_________________________________________________________________
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="학습">학습</h2>
+
+<p>model의 complie 메소드로 세부적인 학습설정을 할 수 있습니다.<br />
+아래의 모델은 optimizer는 SGD, 손실함수는 crossentropy, 평가지표는 accuracy를 사용하였습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="n">model</span> <span class="o">=</span> <span class="nc">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">"relu"</span><span class="p">),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">"softmax"</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">"SGD"</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s">"sparse_categorical_crossentropy"</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="s">"accuracy"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>손실함수의 경우 라벨이 정수일때는 <code class="language-plaintext highlighter-rouge">sparse_categorical_crossentropy</code>, 라벨이 원 핫 인코딩 되어있을때는 <code class="language-plaintext highlighter-rouge">categorical_crossentropy</code>를 사용합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">to_categorical</code> 함수를 사용하여 라벨을 쉽게 원 핫 인코딩 할 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+
+<span class="n">train_labels_one_hot</span> <span class="o">=</span> <span class="nf">to_categorical</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span>
+<span class="n">test_labels_one_hot</span> <span class="o">=</span> <span class="nf">to_categorical</span><span class="p">(</span><span class="n">test_labels</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">train_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">train_labels_one_hot</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>5
+[0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>학습률과 같은 옵티마이저의 세부사항을 조정하고싶다면 다음과 같이 해야 합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="n">optimizer</span> <span class="o">=</span> <span class="n">keras</span><span class="p">.</span><span class="n">optimizers</span><span class="p">.</span><span class="nc">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s">"sparse_categorical_crossentropy"</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="s">"accuracy"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>저희가 다루는 데이터는 mnist 손글씨 데이터 입니다.<br />
+손글씨 이미지 한장은 28*28 의 크기를 가지고 있고 그 값은 0 ~ 255 사이의 픽셀의 밝기를 의미합니다.<br />
+따라서 데이터를 모두 255로 나누어주면 데이터는 0 ~ 1사이의 값을 가지게 됩니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="nf">load_data</span><span class="p">()</span>
+
+<span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span><span class="p">.</span><span class="nf">reshape</span><span class="p">((</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="p">.</span><span class="nf">reshape</span><span class="p">((</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span> <span class="o">/</span> <span class="mi">255</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>학습 설정까지 마친 model은 <code class="language-plaintext highlighter-rouge">fit</code> 메소드로 학습을 시킬 수 있습니다.<br />
+이때 배치의 크기와 epochs를 설정합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>Epoch 1/5
+
+
+2023-06-06 19:20:37.495256: W tensorflow/core/platform/profile_utils/cpu_utils.cc:128] Failed to get CPU frequency: 0 Hz
+2023-06-06 19:20:37.612264: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+
+
+469/469 [==============================] - 2s 4ms/step - loss: 0.6483 - accuracy: 0.8295
+Epoch 2/5
+469/469 [==============================] - 2s 4ms/step - loss: 0.3337 - accuracy: 0.9055
+Epoch 3/5
+469/469 [==============================] - 2s 4ms/step - loss: 0.2904 - accuracy: 0.9175
+Epoch 4/5
+469/469 [==============================] - 2s 4ms/step - loss: 0.2618 - accuracy: 0.9253
+Epoch 5/5
+469/469 [==============================] - 2s 4ms/step - loss: 0.2401 - accuracy: 0.9318
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">fit</code> 메소드는 학습과정이 기록된 객체를 리턴합니다.<br />
+이를 통해 각 epoch별 손실함수의 값과 평가지표의 값을 확인할 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">history</span><span class="p">.</span><span class="n">history</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>{'loss': [0.6483351588249207,
+  0.3336530327796936,
+  0.29039037227630615,
+  0.26177677512168884,
+  0.24005787074565887],
+ 'accuracy': [0.8295000195503235,
+  0.9054833054542542,
+  0.9174500107765198,
+  0.9252833127975464,
+  0.9318000078201294]}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="평가">평가</h2>
+
+<p>모델에 대한 평가는 evaluate 메소드로 할 수 있습니다. <br />
+이때 학습데이터가 아닌 test 데이터 셋을 사용해야 합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="p">.</span><span class="nc">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">"relu"</span><span class="p">),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">"softmax"</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">"RMSprop"</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s">"sparse_categorical_crossentropy"</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="s">"accuracy"</span><span class="p">)</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+
+<span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"test_acc: </span><span class="si">{</span><span class="n">test_acc</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre>Epoch 1/5
+  9/469 [..............................] - ETA: 3s - loss: 1.3705 - accuracy: 0.5946  
+
+2023-06-06 19:20:48.206735: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+
+
+469/469 [==============================] - 3s 6ms/step - loss: 0.2555 - accuracy: 0.9273
+Epoch 2/5
+469/469 [==============================] - 3s 6ms/step - loss: 0.1016 - accuracy: 0.9704
+Epoch 3/5
+469/469 [==============================] - 3s 6ms/step - loss: 0.0671 - accuracy: 0.9797
+Epoch 4/5
+469/469 [==============================] - 3s 6ms/step - loss: 0.0492 - accuracy: 0.9850
+Epoch 5/5
+469/469 [==============================] - 3s 6ms/step - loss: 0.0372 - accuracy: 0.9887
+ 29/313 [=&gt;............................] - ETA: 1s - loss: 0.0554 - accuracy: 0.9860
+
+2023-06-06 19:21:02.880950: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+
+
+313/313 [==============================] - 1s 4ms/step - loss: 0.0722 - accuracy: 0.9795
+
+
+test_acc: 0.9794999957084656
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>모델의 예측확률분포를 알고싶다면 predict 메소드를 사용합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">test_images</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>102/313 [========&gt;.....................] - ETA: 0s
+
+2023-06-06 19:21:04.170892: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+
+
+313/313 [==============================] - 1s 2ms/step
+[1.4570821e-09 1.7129452e-11 1.0004075e-06 3.3091777e-07 1.7591903e-12
+ 3.3679076e-10 7.1158764e-15 9.9999857e-01 1.0977904e-09 1.3834070e-07]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">predictions</code> 을 통해 confusion matrix를 만들 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="n">confusion</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">test_images</span><span class="p">)):</span>    
+    <span class="n">i</span> <span class="o">=</span> <span class="n">test_labels</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>               <span class="c1"># k 번째 데이터의 실제 값
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">argmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>    <span class="c1"># k 번째 데이터에 대한 예측 값(확률이 가장 높은 index)
+</span>    <span class="n">confusion</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="nf">print</span><span class="p">(</span><span class="n">confusion</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>[[ 968    1    1    0    1    1    2    2    2    2]
+ [   0 1129    3    0    0    1    2    0    0    0]
+ [   3    1 1019    0    2    0    2    4    1    0]
+ [   0    0   12  973    1    6    0    8    3    7]
+ [   1    0    3    0  971    0    2    1    0    4]
+ [   2    0    0    4    1  872    7    2    2    2]
+ [   2    3    4    1    5    2  938    1    2    0]
+ [   0    3   11    0    0    1    0 1009    0    4]
+ [   7    0   16    2    5    5    1    5  925    8]
+ [   1    2    0    2    8    1    0    4    0  991]]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>sklearn을 사용하면 같은 결과를 쉽게 얻을 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+
+<span class="n">confusion</span> <span class="o">=</span> <span class="nf">confusion_matrix</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="nf">argmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">confusion</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>[[ 968    1    1    0    1    1    2    2    2    2]
+ [   0 1129    3    0    0    1    2    0    0    0]
+ [   3    1 1019    0    2    0    2    4    1    0]
+ [   0    0   12  973    1    6    0    8    3    7]
+ [   1    0    3    0  971    0    2    1    0    4]
+ [   2    0    0    4    1  872    7    2    2    2]
+ [   2    3    4    1    5    2  938    1    2    0]
+ [   0    3   11    0    0    1    0 1009    0    4]
+ [   7    0   16    2    5    5    1    5  925    8]
+ [   1    2    0    2    8    1    0    4    0  991]]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h1 id="cifar10-data">CIFAR10 Data</h1>
+
+<p>CIFAR10 데이터는 케라스에서 불러올수 있습니다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">keras.datasets</span> <span class="kn">import</span> <span class="n">cifar10</span>
+
+<span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">cifar10</span><span class="p">.</span><span class="nf">load_data</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>Downloading data from https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
+170498071/170498071 [==============================] - 62s 0us/step
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Mnist Data 와 달리<br />
+데이터들은 3차원 텐서로 되어있고 그 안은 3차원 벡터들로 이루어져 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nf">print</span><span class="p">(</span><span class="n">train_images</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">shape</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>(32, 32, 3)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">plt.imshow</code>를 통해 이미지를 확인할 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="nf">axis</span><span class="p">(</span><span class="s">"off"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">imshow</span><span class="p">(</span><span class="n">train_images</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">train_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/122070432/243709150-5a04fe50-0b96-407a-bed0-12808a252b24.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>[6]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>첫 번째 이미지 데이터의 라벨은 6이며 라벨은 다음과 같이 대응합니다.<br />
+개구리 이미지였네요</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">'airplane'</span><span class="p">,</span> <span class="s">'automobile'</span><span class="p">,</span> <span class="s">'bird'</span><span class="p">,</span> <span class="s">'cat'</span><span class="p">,</span> <span class="s">'deer'</span><span class="p">,</span> <span class="s">'dog'</span><span class="p">,</span> <span class="s">'frog'</span><span class="p">,</span> <span class="s">'horse'</span><span class="p">,</span> <span class="s">'sheep'</span><span class="p">,</span> <span class="s">'truck'</span><span class="p">]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>데이터가 3차원 텐서인 이유는 기존 2차원이였던 이미지에 채널이 추가되었기 때문입니다.<br />
+채널을 추가함으로서 이미지의 색상을 입힐 수 있습니다.</p>
+
+<p>위의 <code class="language-plaintext highlighter-rouge">train_images[0].shape</code>을 통해 데이터의 shape을 알 수 있었는데요, 순서대로 H(height),W(width),C(channel)을 뜻합니다.</p>
+
+<p><strong>케라스와 matplotlib 에서는 H*W*C 포맷을 따르지만 파이토치에서는 C*H*W 포맷을 따릅니다.</strong></p>
+
+<p>다음 이미지를 통해 각 포맷이 이미지를 어떻게 설명하는지 알 수 있습니다.<br />
+<img src="https://drive.google.com/uc?id=1MZsJm_asjnSfYcesgi8hznJ7WvUVEhzT" alt="img" /></p>
+
+<p>이미지를 몇 장 확인해 볼까요?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">xticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">yticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">imshow</span><span class="p">(</span><span class="n">train_images</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="n">class_names</span><span class="p">[</span><span class="n">train_labels</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/122070432/243709153-142bb42e-f37d-4d1c-87e9-c6b7fdbf14a0.png" alt="png" /></p>
+
+<p>input 데이터의 크기가 다르기 때문에 이전에 썼던 모델을 그대로 사용할 수 없습니다.<br />
+하지만 <code class="language-plaintext highlighter-rouge">input_shape</code> 만 조절하면 이전과 거의 동일한 방법으로 쉽게 모델을 만들 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span><span class="p">.</span><span class="nf">reshape</span><span class="p">((</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">32</span> <span class="o">*</span> <span class="mi">32</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="p">.</span><span class="nf">reshape</span><span class="p">((</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">32</span> <span class="o">*</span> <span class="mi">32</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span> <span class="o">/</span> <span class="mi">255</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="p">.</span><span class="nc">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span> <span class="o">*</span> <span class="mi">32</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">"relu"</span><span class="p">),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">"softmax"</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">"RMSprop"</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s">"sparse_categorical_crossentropy"</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="s">"accuracy"</span><span class="p">)</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+
+<span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"test_acc: </span><span class="si">{</span><span class="n">test_acc</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre></td><td class="rouge-code"><pre>Epoch 1/15
+
+
+2023-06-06 22:18:30.067735: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+
+
+391/391 [==============================] - 4s 10ms/step - loss: 2.4656 - accuracy: 0.2397
+Epoch 2/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.8256 - accuracy: 0.3436
+Epoch 3/15
+391/391 [==============================] - 4s 10ms/step - loss: 1.7243 - accuracy: 0.3855
+Epoch 4/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.6619 - accuracy: 0.4084
+Epoch 5/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.6190 - accuracy: 0.4248
+Epoch 6/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.5835 - accuracy: 0.4384
+Epoch 7/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.5578 - accuracy: 0.4483
+Epoch 8/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.5311 - accuracy: 0.4589
+Epoch 9/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.5109 - accuracy: 0.4669
+Epoch 10/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.4930 - accuracy: 0.4732
+Epoch 11/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.4745 - accuracy: 0.4789
+Epoch 12/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.4564 - accuracy: 0.4828
+Epoch 13/15
+391/391 [==============================] - 3s 9ms/step - loss: 1.4473 - accuracy: 0.4881
+Epoch 14/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.4324 - accuracy: 0.4941
+Epoch 15/15
+391/391 [==============================] - 4s 9ms/step - loss: 1.4169 - accuracy: 0.5008
+ 13/313 [&gt;.............................] - ETA: 1s - loss: 1.4993 - accuracy: 0.4712 
+
+2023-06-06 22:19:24.975474: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+
+
+313/313 [==============================] - 2s 5ms/step - loss: 1.5103 - accuracy: 0.4766
+
+
+test_acc: 0.4765999913215637
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>하지만 이런 기본적인 신경망으론 높은 정확도를 기대하긴 힘듭니다.<br />
+다음에는 IMDB 데이터셋을 통해 자연어처리를 활용하여 이진분류를 하는 모델을 만들어 보겠습니다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#keras" class="page__taxonomy-item p-category" rel="tag">keras</a><span class="sep">, </span>
+    
+      <a href="/tags/#ml" class="page__taxonomy-item p-category" rel="tag">ml</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#keras" class="page__taxonomy-item p-category" rel="tag">Keras</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-06-02T00:00:00+09:00">June 2, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5Bkeras+%EB%BF%8C%EC%8B%9C%EA%B8%B0%5D+Sequential+API%20http%3A%2F%2Flocalhost%3A4000%2Fkeras%2Fkeras_01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fkeras%2Fkeras_01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fkeras%2Fkeras_01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/programmers/programmers-network-solution/" class="pagination--pager" title="[Programmers] 네트워크
+">이전</a>
+    
+    
+      <a href="/keras/keras_02/" class="pagination--pager" title="[keras 뿌시기] 자연어처리를 이용한 이진분류
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/keras/keras_02/" rel="permalink">[keras 뿌시기] 자연어처리를 이용한 이진분류
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-06-06T00:00:00+09:00">June 6, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">IMDB 데이터셋을 활용한 이진분류
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programmers/programmers-network-solution/" rel="permalink">[Programmers] 네트워크
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-19T00:00:00+09:00">February 19, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">프로그래머스 네트워크 문제풀이
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/dacon/prediction-of-trevel-product/" rel="permalink">[Dacon] 여행상품 신청예측
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-02T00:00:00+09:00">February 2, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          43 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">데이콘 Basic 여행상품 신청예측
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programmers/programmers-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" rel="permalink">[Programmers] 이모티콘 할인행사
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-30T00:00:00+09:00">January 30, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">프로그래머스 이모티콘 할인행사
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Tae Hyeon Kim. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
